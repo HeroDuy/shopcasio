@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CASIO HERO DUY | Official Online Store</title>
+  <meta name="description" content="Casio Hero Duy - Chuyên cung cấp máy tính học tập, máy tính khoa học và các phụ kiện dành cho học sinh, sinh viên. Chính hãng – Giá rẻ – Uy tín." />
+
+  <!-- Google Fonts: Be Vietnam Pro, Montserrat, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #14243A;
+      --navy-light: #1E3452;
+      --gold: #D6B56D;
+      --gold-hover: #C4A159;
+      --ivory: #F8F7F3;
+      --white: #FFFFFF;
+      --text-primary: #202938;
+      --text-secondary: #6B7280;
+      --border: #E5E7EB;
+      --success: #18865B;
+      --warning: #D69A35;
+      --danger: #D9534F;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(20, 36, 58, 0.06);
+      --shadow-hover: 0 10px 28px rgba(20, 36, 58, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: var(--ivory);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ================= HEADER ================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background-color: var(--navy);
+      color: var(--white);
+      border-bottom: 1px solid rgba(214, 181, 109, 0.25);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-logo img {
+      height: 42px;
+      width: auto;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.8px;
+      color: var(--white);
+    }
+
+    .brand-subtitle {
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.88);
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--gold);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-zalo-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 9px 18px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-zalo-header:hover {
+      background-color: var(--gold-hover);
+      transform: translateY(-1px);
+    }
+
+    .hamburger-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--white);
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero-section {
+      background-color: var(--navy);
+      color: var(--white);
+      padding: 64px 0 72px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero-desc {
+      font-size: 1.02rem;
+      color: rgba(248, 247, 243, 0.88);
+      margin-bottom: 30px;
+      max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.96rem;
+      padding: 14px 26px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+      font-size: 0.96rem;
+      padding: 14px 26px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline-light:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-visual-box {
+      background-color: var(--navy-light);
+      border: 1px solid rgba(214, 181, 109, 0.35);
+      border-radius: 16px;
+      padding: 24px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual-box img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .hero-placeholder {
+      text-align: center;
+      padding: 28px;
+      border: 1px dashed rgba(214, 181, 109, 0.45);
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    .hero-placeholder-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .hero-placeholder-sub {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    /* ================= SECTION GENERAL ================= */
+    .section-block {
+      padding: 68px 0;
+    }
+
+    .section-bg-white {
+      background-color: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 44px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 0.96rem;
+      color: var(--text-secondary);
+    }
+
+    /* ================= STORE INTRO ================= */
+    .intro-wrapper {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-lead {
+      font-size: 1.04rem;
+      color: var(--text-primary);
+      max-width: 880px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .intro-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .highlight-item {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .highlight-title {
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .highlight-text {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+    }
+
+    /* ================= 5 CATEGORIES ================= */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .cat-card {
+      background-color: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .cat-card:hover,
+    .cat-card.active {
+      border-color: var(--navy);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .cat-card.active {
+      background-color: var(--navy);
+      color: var(--white);
+    }
+
+    .cat-thumb {
+      height: 110px;
+      background-color: var(--ivory);
+      border-radius: 8px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .cat-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    .cat-code-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--navy);
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    .cat-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .cat-desc {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .cat-card.active .cat-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cat-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .cat-card.active .cat-footer {
+      border-top-color: rgba(255, 255, 255, 0.2);
+      color: var(--gold);
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 36px 0 24px;
+      padding: 16px 20px;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .filter-status-text {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .btn-reset-filter {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-reset-filter:hover {
+      border-color: var(--navy);
+    }
+
+    /* ================= PRODUCT SHOWCASE & TIERS ================= */
+    .products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .product-block {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .product-top {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 28px;
+      padding: 28px;
+      background-color: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-img-frame {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .product-img-frame img {
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .img-empty-box {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.84rem;
+      padding: 16px;
+    }
+
+    .product-meta-cat {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy);
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .product-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .product-desc {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .product-note {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      padding: 10px 14px;
+      background-color: var(--ivory);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+    }
+
+    /* Tiers Section inside Product */
+    .tiers-container {
+      padding: 24px 28px 28px;
+      background-color: var(--ivory);
+    }
+
+    .tiers-heading {
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 18px;
+    }
+
+    .tier-card {
+      background-color: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .tier-card:hover {
+      border-color: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .tier-top-bar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .tier-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 0.73rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .status-CON_HANG {
+      background-color: rgba(24, 134, 91, 0.12);
+      color: var(--success);
+    }
+
+    .status-LIEN_HE {
+      background-color: rgba(214, 154, 53, 0.15);
+      color: var(--warning);
+    }
+
+    .status-HET_HANG {
+      background-color: rgba(217, 83, 79, 0.12);
+      color: var(--danger);
+    }
+
+    .tier-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .tier-thumb {
+      height: 130px;
+      background-color: var(--ivory);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .tier-thumb img {
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .tier-specs {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tier-spec-row strong {
+      color: var(--text-primary);
+    }
+
+    .btn-tier-order {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      background-color: var(--navy);
+      color: var(--white);
+      transition: all 0.2s ease;
+    }
+
+    .btn-tier-order:hover {
+      background-color: var(--navy-light);
+    }
+
+    .btn-tier-zalo {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1.5px solid var(--warning);
+      background-color: rgba(214, 154, 53, 0.08);
+      color: #9A6B19;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn-tier-zalo:hover {
+      background-color: var(--warning);
+      color: var(--white);
+    }
+
+    .btn-tier-disabled {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      background-color: #E5E7EB;
+      color: #9CA3AF;
+      border: none;
+      cursor: not-allowed;
+    }
+
+    /* ================= POLICIES & CONTACT ================= */
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .policy-card {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .policy-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-content {
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      white-space: pre-line;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0 26px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    .contact-val {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .qr-box {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .qr-box img {
+      max-width: 200px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    /* ================= MODAL ORDER & SUCCESS ================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(20, 36, 58, 0.68);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background-color: var(--white);
+      width: 100%;
+      max-width: 560px;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background-color: var(--navy);
+      color: var(--white);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .selected-summary {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--navy);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.94rem;
+      color: var(--text-primary);
+      background-color: var(--white);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+
+    .form-control[readonly] {
+      background-color: #F3F4F6;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 12px;
+      background-color: var(--ivory);
+      border-radius: 8px;
+      font-size: 0.86rem;
+    }
+
+    .checkbox-group input {
+      margin-top: 4px;
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    /* ================= FOOTER ================= */
+    .site-footer {
+      background-color: var(--navy);
+      color: rgba(255, 255, 255, 0.82);
+      padding: 56px 0 28px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+      gap: 32px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ================= TOAST ================= */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2000;
+      background-color: var(--navy);
+      color: var(--white);
+      border-left: 4px solid var(--gold);
+      padding: 14px 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      font-size: 0.9rem;
+      display: none;
+      max-width: 360px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .intro-highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger-btn {
+        display: inline-flex;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background-color: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 2px solid var(--gold);
+        display: none;
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .hero-grid,
+      .product-top,
+      .policies-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .intro-highlights,
+      .form-row-2,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .intro-wrapper,
+      .contact-grid {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+      .btn-zalo-header span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand-logo" id="headerLogoLink">
+        <img id="headerLogoImg" src="" alt="Casio Hero Duy" style="display: none;" />
+        <div class="brand-text-wrap">
+          <span class="brand-title" id="headerBrandName">CASIO HERO DUY</span>
+          <span class="brand-subtitle">Official Online Store</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="mainNav">
+        <a href="#top" class="nav-link" onclick="closeMobileNav()">Trang chủ</a>
+        <a href="#san-pham" class="nav-link" onclick="closeMobileNav()">Sản phẩm</a>
+        <a href="#gioi-thieu" class="nav-link" onclick="closeMobileNav()">Giới thiệu</a>
+        <a href="#chinh-sach" class="nav-link" onclick="closeMobileNav()">Chính sách</a>
+        <a href="#lien-he" class="nav-link" onclick="closeMobileNav()">Liên hệ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://zalo.me/0587231800" target="_blank" rel="noopener" class="btn-zalo-header" id="headerZaloBtn">
+          Zalo <span>Tư Vấn</span>
+        </a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Mở menu" onclick="toggleMobileNav()">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-badge">Official Online Store</span>
+        <h1 class="hero-title" id="heroBrandTitle">CASIO HERO DUY</h1>
+        <p class="hero-tagline" id="heroTagline">Chính hãng – Giá rẻ – Uy tín.</p>
+        <p class="hero-desc" id="heroDescription">
+          Chuyên cung cấp máy tính học tập, máy tính khoa học và các phụ kiện dành cho học sinh, sinh viên. Đặt cái tâm trong từng sản phẩm, luôn hướng đến trải nghiệm mua sắm thuận tiện và đáng tin cậy.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#san-pham" class="btn-primary">Khám phá sản phẩm</a>
+          <a href="#lien-he" class="btn-outline-light">Liên hệ tư vấn</a>
+        </div>
+      </div>
+
+      <div class="hero-visual-box" id="heroBannerContainer">
+        <div class="hero-placeholder" id="heroBannerPlaceholder">
+          <div class="hero-placeholder-title">CASIO HERO DUY</div>
+          <p class="hero-placeholder-sub">Khung hiển thị hình ảnh sản phẩm thực tế hoặc Banner thương hiệu (Cập nhật URL trực tiếp trong trang Quản trị)</p>
+        </div>
+        <img id="heroBannerImg" src="" alt="Banner Casio Hero Duy" style="display: none;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GIỚI THIỆU CỬA HÀNG ================= -->
+  <section class="section-block" id="gioi-thieu">
+    <div class="container">
+      <div class="intro-wrapper">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <div class="section-eyebrow">Về Chúng Tôi</div>
+          <h2 class="section-title">Giới Thiệu Casio Hero Duy</h2>
+        </div>
+        <p class="intro-lead" id="aboutLeadText">
+          Casio Hero Duy chuyên cung cấp các dòng máy tính khoa học phục vụ học tập và thi cử cho học sinh, sinh viên. Mọi sản phẩm trước khi đến tay khách hàng đều được kiểm tra kỹ lưỡng về bo mạch, màn hình hiển thị và độ nhạy phím bấm.
+        </p>
+        <div class="intro-highlights">
+          <div class="highlight-item">
+            <div class="highlight-title"><span class="highlight-dot"></span>Lĩnh vực chuyên sâu</div>
+            <p class="highlight-text">Tập trung vào các dòng máy tính khoa học Casio FX-570, FX-580VN X, FX-880BTG, Flexio 799VN và Vinacal.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-title"><span class="highlight-dot"></span>Đa dạng phân khúc</div>
+            <p class="highlight-text">Chia rõ nhiều mức giá theo ngoại hình và tình trạng thực tế, giúp học sinh – sinh viên dễ chọn theo ngân sách.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-title"><span class="highlight-dot"></span>Hình ảnh thực tế</div>
+            <p class="highlight-text">Hỗ trợ gửi hình ảnh và video kiểm tra máy trực tiếp qua Zalo trước khi đóng gói giao hàng.</p>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-title"><span class="highlight-dot"></span>Đồng hành & Bảo hành</div>
+            <p class="highlight-text">Cho phép kiểm tra máy khi nhận hàng và áp dụng chế độ bảo hành minh bạch theo từng phân khúc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DANH MỤC & SẢN PHẨM ================= -->
+  <section class="section-block section-bg-white" id="san-pham">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Danh Mục Chính Hãng</div>
+        <h2 class="section-title">Khám Phá Theo Dòng Máy</h2>
+        <p class="section-desc">Chọn danh mục bên dưới để xem thông tin chi tiết từng dòng máy và các phân khúc giá hiện có tại cửa hàng.</p>
+      </div>
+
+      <!-- 5 Danh mục chính -->
+      <div class="categories-grid" id="categoriesGrid"></div>
+
+      <!-- Thanh trạng thái lọc -->
+      <div class="filter-bar">
+        <div class="filter-status-text" id="filterStatusText">Đang hiển thị: Tất cả danh mục sản phẩm</div>
+        <button class="btn-reset-filter" onclick="selectCategory('ALL')">Xem tất cả (5 danh mục)</button>
+      </div>
+
+      <!-- Danh sách sản phẩm & phân khúc giá -->
+      <div class="products-list" id="productsContainer">
+        <div style="text-align: center; padding: 48px; color: var(--text-secondary);">
+          Đang tải dữ liệu sản phẩm từ hệ thống Casio Hero Duy...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHÍNH SÁCH CỬA HÀNG ================= -->
+  <section class="section-block" id="chinh-sach">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Minh Bạch & Rõ Ràng</div>
+        <h2 class="section-title">Chính Sách & Hướng Dẫn Mua Hàng</h2>
+        <p class="section-desc">Các quy định về bảo hành, kiểm tra hàng và quy trình đặt mua tại Casio Hero Duy.</p>
+      </div>
+
+      <div class="policies-grid">
+        <div class="policy-card">
+          <h3 class="policy-title">1. Hướng dẫn mua hàng</h3>
+          <div class="policy-content" id="policyBuyingGuide">Đang tải...</div>
+        </div>
+        <div class="policy-card">
+          <h3 class="policy-title">2. Chính sách bảo hành</h3>
+          <div class="policy-content" id="policyWarranty">Đang tải...</div>
+        </div>
+        <div class="policy-card">
+          <h3 class="policy-title">3. Chính sách kiểm tra & đổi trả</h3>
+          <div class="policy-content" id="policyReturn">Đang tải...</div>
+        </div>
+        <div class="policy-card">
+          <h3 class="policy-title">4. Chính sách vận chuyển</h3>
+          <div class="policy-content" id="policyShipping">Đang tải...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LIÊN HỆ & ZALO ================= -->
+  <section class="section-block section-bg-white" id="lien-he">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="section-eyebrow">Hỗ Trợ Trực Tiếp</div>
+          <h2 class="section-title" style="margin-bottom: 10px;">Kết Nối Với Casio Hero Duy</h2>
+          <p class="section-desc">Cần tư vấn chọn dòng máy phù hợp với cấp học hoặc xem hình ảnh thực tế từng phân khúc, bạn hãy liên hệ trực tiếp qua Zalo cửa hàng.</p>
+
+          <div class="contact-list">
+            <div class="contact-row">
+              <span class="contact-label">Địa chỉ cửa hàng</span>
+              <span class="contact-val" id="contactAddress">308 Trương Thị Hoa, P. Tân Thới Hiệp, Q.12, TP.HCM</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Điện thoại liên hệ</span>
+              <span class="contact-val" id="contactPhone">077 6767 179</span>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Zalo tư vấn & xác nhận đơn</span>
+              <span class="contact-val" id="contactZalo">058 723 1800</span>
+            </div>
+          </div>
+
+          <a href="https://zalo.me/0587231800" target="_blank" rel="noopener" class="btn-primary" id="contactZaloBtn">
+            Nhắn tin Zalo ngay
+          </a>
+        </div>
+
+        <div class="qr-box">
+          <img id="contactZaloQrImg" src="" alt="Mã QR Zalo Casio Hero Duy" style="display: none;" />
+          <div id="contactZaloQrPlaceholder" style="padding: 24px; color: var(--text-secondary); font-size: 0.88rem;">
+            <strong>Mã QR Zalo Cửa Hàng</strong>
+            <p style="margin-top: 6px;">(Hiển thị tự động sau khi cập nhật URL ảnh QR Zalo chính thức trong bảng Settings)</p>
+          </div>
+          <span style="font-size: 0.85rem; font-weight: 600; color: var(--navy);">Quét mã QR để kết nối Zalo chính thức</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-heading" id="footerBrandName">CASIO HERO DUY</div>
+          <p style="font-size: 0.9rem; margin-bottom: 14px;">
+            Chuyên cung cấp máy tính học tập, máy tính khoa học và phụ kiện dành cho học sinh, sinh viên.
+          </p>
+          <p style="font-size: 0.85rem; color: var(--gold);">Chính hãng – Giá rẻ – Uy tín.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Danh Mục Sản Phẩm</div>
+          <ul class="footer-links">
+            <li><a href="#san-pham" onclick="selectCategory('CAT_01')">CASIO FX-570</a></li>
+            <li><a href="#san-pham" onclick="selectCategory('CAT_02')">CASIO FX-580VN X</a></li>
+            <li><a href="#san-pham" onclick="selectCategory('CAT_03')">CASIO FX-880</a></li>
+            <li><a href="#san-pham" onclick="selectCategory('CAT_04')">FLEXIO 799VN</a></li>
+            <li><a href="#san-pham" onclick="selectCategory('CAT_05')">VINACAL & Dòng khác</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Chính Sách & Hỗ Trợ</div>
+          <ul class="footer-links">
+            <li><a href="#chinh-sach">Hướng dẫn mua hàng</a></li>
+            <li><a href="#chinh-sach">Chính sách bảo hành</a></li>
+            <li><a href="#chinh-sach">Chính sách đổi trả</a></li>
+            <li><a href="#chinh-sach">Chính sách vận chuyển</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Thông Tin Liên Hệ</div>
+          <ul class="footer-links">
+            <li id="footerAddress">Đ/c: 308 Trương Thị Hoa, P. Tân Thới Hiệp, Q.12, TP.HCM</li>
+            <li id="footerPhone">SĐT: 077 6767 179</li>
+            <li id="footerZalo">Zalo: 058 723 1800</li>
+            <li style="margin-top: 10px;">
+              <a href="https://zalo.me/0587231800" target="_blank" rel="noopener" id="footerZaloLink" style="color: var(--gold); font-weight: 700;">
+                → Kết nối Zalo cửa hàng
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="copyrightYear">2026</span> CASIO HERO DUY. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL BIỂU MẪU ĐẶT HÀNG ================= -->
+  <div class="modal-backdrop" id="orderModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">GỬI YÊU CẦU ĐẶT HÀNG</div>
+        <button class="modal-close" onclick="closeOrderModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="orderForm" onsubmit="submitOrderForm(event)">
+          <input type="hidden" id="orderProductId" />
+          <input type="hidden" id="orderTierId" />
+          <input type="hidden" id="orderUnitPriceRaw" />
+
+          <div class="selected-summary">
+            <div style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Sản phẩm & Phân khúc đã chọn</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--navy); margin-top: 2px;" id="summaryProductName">-</div>
+            <div style="font-size: 0.92rem; color: var(--text-primary);" id="summaryTierName">-</div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Tên sản phẩm</label>
+              <input type="text" class="form-control" id="orderProductName" readonly />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phân khúc đã chọn</label>
+              <input type="text" class="form-control" id="orderTierName" readonly />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Đơn giá</label>
+              <input type="text" class="form-control" id="orderPriceDisplay" readonly />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="orderQuantity">Số lượng *</label>
+              <input type="number" class="form-control" id="orderQuantity" value="1" min="1" max="50" required oninput="updateEstimatedTotal()" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tổng tiền dự kiến (chưa gồm phí vận chuyển nếu có)</label>
+            <input type="text" class="form-control" id="orderTotalDisplay" readonly style="color: var(--success); font-weight: 800;" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerName">Họ và tên người nhận *</label>
+            <input type="text" class="form-control" id="customerName" placeholder="Nhập đầy đủ họ và tên" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerPhone">Số điện thoại liên hệ / Zalo *</label>
+            <input type="tel" class="form-control" id="customerPhone" placeholder="Ví dụ: 0901234567" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="customerAddress">Địa chỉ nhận hàng chi tiết *</label>
+            <textarea class="form-control" id="customerAddress" rows="2" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố" required></textarea>
+          </div>
+
+          <label class="checkbox-group">
+            <input type="checkbox" id="orderConfirmCheck" required />
+            <span>Tôi xác nhận các thông tin đặt hàng trên là chính xác và đồng ý gửi yêu cầu đến Casio Hero Duy.</span>
+          </label>
+
+          <button type="submit" class="btn-primary" id="submitOrderBtn" style="width: 100%; background-color: var(--navy); color: var(--gold);">
+            GỬI YÊU CẦU ĐẶT HÀNG
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL TIẾP NHẬN THÀNH CÔNG ================= -->
+  <div class="modal-backdrop" id="successModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">ĐÃ TIẾP NHẬN YÊU CẦU ĐẶT HÀNG</div>
+        <button class="modal-close" onclick="closeSuccessModal()">×</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background-color: rgba(24,134,91,0.12); color: var(--success); display: inline-flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 700; margin-bottom: 14px;">✓</div>
+        <h3 style="font-family: 'Montserrat', sans-serif; color: var(--navy); margin-bottom: 10px;">Mã yêu cầu: <span id="successOrderId" style="color: var(--success);">CHD-...</span></h3>
+
+        <p style="font-size: 0.94rem; color: var(--text-primary); background-color: var(--ivory); padding: 16px; border-radius: 10px; border-left: 4px solid var(--gold); text-align: left; margin-bottom: 20px;">
+          Cảm ơn bạn đã lựa chọn Casio Hero Duy. Yêu cầu đặt hàng của bạn đã được tiếp nhận. Vui lòng kết nối Zalo với cửa hàng để được tư vấn, xác nhận tình trạng sản phẩm và nhận hình ảnh thực tế trước khi giao hàng.
+        </p>
+
+        <div id="successQrWrap" style="margin-bottom: 18px; display: none;">
+          <img id="successZaloQrImg" src="" alt="QR Zalo Casio Hero Duy" style="max-width: 180px; margin: 0 auto 8px; border: 1px solid var(--border); border-radius: 8px;" />
+          <div style="font-size: 0.82rem; color: var(--text-secondary);">Quét mã QR Zalo để nhận hình ảnh máy thực tế</div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://zalo.me/0587231800" target="_blank" rel="noopener" class="btn-primary" id="successZaloBtn">
+            Kết nối Zalo cửa hàng ngay
+          </a>
+          <button class="btn-reset-filter" onclick="closeSuccessModal()">Đóng cửa sổ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast thông báo -->
+  <div class="toast-box" id="toastBox"></div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    /**
+     * CẤU HÌNH ĐƯỜNG DẪN WEB APP GOOGLE APPS SCRIPT
+     * Sau khi triển khai Code.gs thành Web App, dán URL (/exec) vào giữa cặp dấu nháy dưới đây:
+     */
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwx8CtdX26l16FzHmSlgVB7P0uL9tijjhXhJKc8mPndYFKzKVvJWZfN0xtML0IAlfar/exec';
+
+    // 5 Danh mục cố định theo đúng Đặc tả Mục II.4
+    const FIXED_CATEGORIES = [
+      {
+        id: 'CAT_01',
+        code: 'FX-570 SERIES',
+        name: 'CASIO FX-570',
+        desc: 'Bao gồm các phiên bản FX-570VN Plus, FX-570ES Plus mà cửa hàng kinh doanh.'
+      },
+      {
+        id: 'CAT_02',
+        code: 'FX-580VN X',
+        name: 'CASIO FX-580VN X',
+        desc: 'Bao gồm nhiều phân khúc giá, tình trạng và lựa chọn ngoại hình sản phẩm.'
+      },
+      {
+        id: 'CAT_03',
+        code: 'FX-880 SERIES',
+        name: 'CASIO FX-880',
+        desc: 'Bao gồm FX-880BTG, FX-880 Plus và các phiên bản liên quan tại cửa hàng.'
+      },
+      {
+        id: 'CAT_04',
+        code: 'FLEXIO 799VN',
+        name: 'FLEXIO 799VN',
+        desc: 'Bao gồm các phiên bản FLEXIO 799VN 2024, 2025 và 2026.'
+      },
+      {
+        id: 'CAT_05',
+        code: 'VINACAL & KHÁC',
+        name: 'VINACAL VÀ CÁC DÒNG KHÁC',
+        desc: 'Bao gồm VINACAL 680 III, các dòng máy tính khác và phụ kiện liên quan.'
+      }
+    ];
+
+    // Dữ liệu dự phòng khi chưa gắn API_URL (Đảm bảo giao diện hoạt động ngay khi mở thử)
+    const FALLBACK_DATA = {
+      settings: {
+        brand_name: 'CASIO HERO DUY',
+        brand_tagline: 'Chính hãng – Giá rẻ – Uy tín.',
+        hero_description: 'Chuyên cung cấp máy tính học tập, máy tính khoa học và các phụ kiện dành cho học sinh, sinh viên. Đặt cái tâm trong từng sản phẩm, luôn hướng đến trải nghiệm mua sắm thuận tiện và đáng tin cậy.',
+        logo_url: '',
+        hero_banner_url: '',
+        phone_number: '077 6767 179',
+        zalo_phone: '058 723 1800',
+        zalo_url: 'https://zalo.me/0587231800',
+        zalo_qr_url: '',
+        store_address: '308 Trương Thị Hoa, P. Tân Thới Hiệp, Q.12, TP.HCM',
+        about_text: 'Casio Hero Duy chuyên cung cấp các dòng máy tính khoa học phục vụ học tập và thi cử cho học sinh, sinh viên. Mọi sản phẩm trước khi đến tay khách hàng đều được kiểm tra kỹ lưỡng về bo mạch, màn hình hiển thị và độ nhạy phím bấm.',
+        policy_warranty: 'Chờ cập nhật nội dung chính sách bảo hành chính thức từ cửa hàng.',
+        policy_return: 'Hỗ trợ kiểm tra hàng trước khi thanh toán. Chi tiết đổi trả được áp dụng theo từng phân khúc sản phẩm cụ thể khi tư vấn qua Zalo.',
+        policy_shipping: 'Giao hàng toàn quốc. Khách hàng được kiểm tra ngoại hình và thử các phép tính cơ bản trước khi nhận máy.',
+        buying_guide: 'Bước 1: Chọn dòng máy và phân khúc giá phù hợp ngân sách.\nBước 2: Điền biểu mẫu yêu cầu đặt hàng trên website.\nBước 3: Kết nối Zalo với cửa hàng để xem hình ảnh/video máy thực tế và xác nhận đơn hàng.'
+      },
+      products: [
+        {
+          product_id: 'PROD_570_VNPLUS',
+          category_id: 'CAT_01',
+          product_name: 'CASIO FX-570VN PLUS',
+          description: 'CASIO FX-570 là dòng máy tính khoa học phục vụ nhu cầu học tập và tính toán. Phù hợp với học sinh, sinh viên và những người cần một thiết bị hỗ trợ các phép tính trong quá trình học tập.',
+          image_url: '',
+          display_order: 1,
+          is_visible: true
+        },
+        {
+          product_id: 'PROD_580_VNX',
+          category_id: 'CAT_02',
+          product_name: 'CASIO FX-580VN X',
+          description: 'Dòng máy tính khoa học tốc độ xử lý cao, màn hình hiển thị biểu thức tự nhiên tiếng Việt. Phù hợp với học sinh THPT, ôn thi đại học và sinh viên các ngành kỹ thuật, kinh tế.',
+          image_url: '',
+          display_order: 2,
+          is_visible: true
+        },
+        {
+          product_id: 'PROD_880_BTG',
+          category_id: 'CAT_03',
+          product_name: 'CASIO FX-880BTG',
+          description: 'Thế hệ máy tính khoa học mới tích hợp bảng tính, QR Code và hộp toán học trực quan. Phù hợp với học sinh theo chương trình giáo dục phổ thông mới và sinh viên đại học.',
+          image_url: '',
+          display_order: 3,
+          is_visible: true
+        },
+        {
+          product_id: 'PROD_FLEXIO_799',
+          category_id: 'CAT_04',
+          product_name: 'FLEXIO FX-799VN (2024 / 2025 / 2026)',
+          description: 'Dòng máy tính khoa học thiết kế hiện đại, hỗ trợ tính năng giải toán nhanh và cảnh báo pin yếu trên màn hình. Phù hợp với học sinh THCS, THPT và sinh viên.',
+          image_url: '',
+          display_order: 4,
+          is_visible: true
+        },
+        {
+          product_id: 'PROD_VINACAL_680',
+          category_id: 'CAT_05',
+          product_name: 'VINACAL 680EX PLUS III',
+          description: 'Dòng máy tính khoa học có phím bấm nhạy, hỗ trợ đầy đủ các phép tính đại số và giải phương trình. Phù hợp với học sinh, sinh viên cần thao tác tính toán nhanh.',
+          image_url: '',
+          display_order: 5,
+          is_visible: true
+        }
+      ],
+      tiers: [
+        {
+          tier_id: 'TIER_580_01',
+          product_id: 'PROD_580_VNX',
+          tier_name: 'Phân khúc Tiết kiệm (Ví dụ giao diện)',
+          price: 88000,
+          description: 'Phân khúc tiết kiệm, dành cho khách hàng có ngân sách thấp.',
+          condition: 'Chờ cửa hàng cập nhật mô tả ngoại hình thực tế.',
+          accessories: 'Nắp trượt bảo vệ',
+          warranty: 'Theo chính sách cửa hàng',
+          status: 'LIEN_HE',
+          image_url: '',
+          display_order: 1
+        },
+        {
+          tier_id: 'TIER_580_02',
+          product_id: 'PROD_580_VNX',
+          tier_name: 'Phân khúc Phổ thông (Ví dụ giao diện)',
+          price: 129000,
+          description: 'Phân khúc phổ thông phù hợp nhu cầu học tập hằng ngày.',
+          condition: 'Chờ cửa hàng cập nhật mô tả ngoại hình thực tế.',
+          accessories: 'Nắp trượt bảo vệ',
+          warranty: 'Theo chính sách cửa hàng',
+          status: 'CON_HANG',
+          image_url: '',
+          display_order: 2
+        },
+        {
+          tier_id: 'TIER_580_03',
+          product_id: 'PROD_580_VNX',
+          tier_name: 'Phân khúc Ngoại hình tốt (Ví dụ giao diện)',
+          price: 149000,
+          description: 'Phân khúc có ngoại hình và tình trạng tốt hơn.',
+          condition: 'Chờ cửa hàng cập nhật mô tả ngoại hình thực tế.',
+          accessories: 'Nắp trượt bảo vệ',
+          warranty: 'Theo chính sách cửa hàng',
+          status: 'CON_HANG',
+          image_url: '',
+          display_order: 3
+        },
+        {
+          tier_id: 'TIER_580_04',
+          product_id: 'PROD_580_VNX',
+          tier_name: 'Phân khúc Tuyển chọn (Ví dụ giao diện)',
+          price: 189000,
+          description: 'Phân khúc ưu tiên ngoại hình đẹp.',
+          condition: 'Chờ cửa hàng cập nhật mô tả ngoại hình thực tế.',
+          accessories: 'Nắp trượt bảo vệ',
+          warranty: 'Theo chính sách cửa hàng',
+          status: 'HET_HANG',
+          image_url: '',
+          display_order: 4
+        }
+      ]
+    };
+
+    let storeState = {
+      settings: {},
+      products: [],
+      tiers: [],
+      activeCategory: 'ALL'
+    };
+
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
+    // Khởi chạy tải dữ liệu khi mở trang
+    window.addEventListener('DOMContentLoaded', loadStoreData);
+
+    async function loadStoreData() {
+      if (!API_URL || API_URL.includes('DAN_URL_GOOGLE_APPS_SCRIPT')) {
+        applyStoreData(FALLBACK_DATA);
+        return;
+      }
+
+      try {
+        const res = await fetch(API_URL + '?action=getPublicData');
+        const json = await res.json();
+        if (json && json.success && json.data) {
+          applyStoreData(json.data);
+        } else {
+          applyStoreData(FALLBACK_DATA);
+        }
+      } catch (err) {
+        console.warn('Đang sử dụng dữ liệu hiển thị mặc định do chưa kết nối API:', err);
+        applyStoreData(FALLBACK_DATA);
+      }
+    }
+
+    function applyStoreData(data) {
+      storeState.settings = data.settings || FALLBACK_DATA.settings;
+      storeState.products = Array.isArray(data.products) ? data.products : [];
+      storeState.tiers = Array.isArray(data.tiers) ? data.tiers : [];
+
+      renderSettings();
+      renderCategories();
+      renderProducts();
+    }
+
+    function renderSettings() {
+      const s = storeState.settings;
+      const brandName = s.brand_name || 'CASIO HERO DUY';
+      document.getElementById('headerBrandName').textContent = brandName;
+      document.getElementById('heroBrandTitle').textContent = brandName;
+      document.getElementById('footerBrandName').textContent = brandName;
+
+      if (s.brand_tagline) document.getElementById('heroTagline').textContent = s.brand_tagline;
+      if (s.hero_description) document.getElementById('heroDescription').textContent = s.hero_description;
+      if (s.about_text) document.getElementById('aboutLeadText').textContent = s.about_text;
+
+      // Logo
+      const logoImg = document.getElementById('headerLogoImg');
+      if (s.logo_url && s.logo_url.trim() !== '') {
+        logoImg.src = s.logo_url.trim();
+        logoImg.style.display = 'block';
+        logoImg.onerror = () => { logoImg.style.display = 'none'; };
+      } else {
+        logoImg.style.display = 'none';
+      }
+
+      // Banner Hero
+      const bannerImg = document.getElementById('heroBannerImg');
+      const bannerPlaceholder = document.getElementById('heroBannerPlaceholder');
+      if (s.hero_banner_url && s.hero_banner_url.trim() !== '') {
+        bannerImg.src = s.hero_banner_url.trim();
+        bannerImg.onload = () => {
+          bannerImg.style.display = 'block';
+          bannerPlaceholder.style.display = 'none';
+        };
+        bannerImg.onerror = () => {
+          bannerImg.style.display = 'none';
+          bannerPlaceholder.style.display = 'block';
+        };
+      }
+
+      // Chính sách
+      document.getElementById('policyBuyingGuide').textContent = s.buying_guide || 'Đang cập nhật.';
+      document.getElementById('policyWarranty').textContent = s.policy_warranty || 'Đang cập nhật.';
+      document.getElementById('policyReturn').textContent = s.policy_return || 'Đang cập nhật.';
+      document.getElementById('policyShipping').textContent = s.policy_shipping || 'Đang cập nhật.';
+
+      // Liên hệ & Zalo
+      const zaloUrl = (s.zalo_url && s.zalo_url.trim() !== '') ? s.zalo_url.trim() : 'https://zalo.me/0587231800';
+      document.getElementById('headerZaloBtn').href = zaloUrl;
+      document.getElementById('contactZaloBtn').href = zaloUrl;
+      document.getElementById('footerZaloLink').href = zaloUrl;
+      document.getElementById('successZaloBtn').href = zaloUrl;
+
+      document.getElementById('contactAddress').textContent = s.store_address || '308 Trương Thị Hoa, P. Tân Thới Hiệp, Q.12, TP.HCM';
+      document.getElementById('contactPhone').textContent = s.phone_number || '077 6767 179';
+      document.getElementById('contactZalo').textContent = s.zalo_phone || '058 723 1800';
+
+      document.getElementById('footerAddress').textContent = 'Đ/c: ' + (s.store_address || '308 Trương Thị Hoa, P. Tân Thới Hiệp, Q.12, TP.HCM');
+      document.getElementById('footerPhone').textContent = 'SĐT: ' + (s.phone_number || '077 6767 179');
+      document.getElementById('footerZalo').textContent = 'Zalo: ' + (s.zalo_phone || '058 723 1800');
+
+      // QR Zalo
+      const qrImg = document.getElementById('contactZaloQrImg');
+      const qrPlaceholder = document.getElementById('contactZaloQrPlaceholder');
+      const successQrWrap = document.getElementById('successQrWrap');
+      const successQrImg = document.getElementById('successZaloQrImg');
+
+      if (s.zalo_qr_url && s.zalo_qr_url.trim() !== '') {
+        qrImg.src = s.zalo_qr_url.trim();
+        successQrImg.src = s.zalo_qr_url.trim();
+        qrImg.onload = () => {
+          qrImg.style.display = 'block';
+          qrPlaceholder.style.display = 'none';
+          successQrWrap.style.display = 'block';
+        };
+        qrImg.onerror = () => {
+          qrImg.style.display = 'none';
+          qrPlaceholder.style.display = 'block';
+          successQrWrap.style.display = 'none';
+        };
+      }
+    }
+
+    function renderCategories() {
+      const grid = document.getElementById('categoriesGrid');
+      grid.innerHTML = FIXED_CATEGORIES.map(cat => {
+        const productsInCat = storeState.products.filter(p => String(p.category_id) === cat.id);
+        const firstImgProduct = productsInCat.find(p => p.image_url && String(p.image_url).trim() !== '');
+        const isActive = storeState.activeCategory === cat.id;
+
+        const thumbHtml = firstImgProduct
+          ? `<img src="${escapeAttr(firstImgProduct.image_url)}" alt="${escapeAttr(cat.name)}" onerror="this.style.display='none'" />`
+          : `<div class="cat-code-badge">${escapeHtml(cat.code)}</div>`;
+
+        return `
+          <div class="cat-card ${isActive ? 'active' : ''}" onclick="selectCategory('${cat.id}')">
+            <div>
+              <div class="cat-thumb">${thumbHtml}</div>
+              <h3 class="cat-name">${escapeHtml(cat.name)}</h3>
+              <p class="cat-desc">${escapeHtml(cat.desc)}</p>
+            </div>
+            <div class="cat-footer">
+              <span>${productsInCat.length} dòng máy</span>
+              <span>Xem sản phẩm →</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectCategory(catId) {
+      storeState.activeCategory = catId;
+      renderCategories();
+      renderProducts();
+
+      const statusEl = document.getElementById('filterStatusText');
+      if (catId === 'ALL') {
+        statusEl.textContent = 'Đang hiển thị: Tất cả danh mục sản phẩm';
+      } else {
+        const found = FIXED_CATEGORIES.find(c => c.id === catId);
+        statusEl.textContent = 'Đang lọc theo danh mục: ' + (found ? found.name : catId);
+      }
+    }
+
+    function renderProducts() {
+      const container = document.getElementById('productsContainer');
+      const filteredProducts = storeState.activeCategory === 'ALL'
+        ? storeState.products
+        : storeState.products.filter(p => String(p.category_id) === storeState.activeCategory);
+
+      if (filteredProducts.length === 0) {
+        container.innerHTML = `
+          <div style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-align: center;">
+            <h3 style="color: var(--navy); margin-bottom: 8px;">Danh mục này đang cập nhật sản phẩm</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 16px;">Vui lòng kết nối Zalo với Casio Hero Duy để được báo giá và gửi hình ảnh máy thực tế trong kho.</p>
+            <a href="${escapeAttr(storeState.settings.zalo_url || 'https://zalo.me/0587231800')}" target="_blank" rel="noopener" class="btn-primary">Liên hệ Zalo tư vấn</a>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filteredProducts.map(prod => {
+        const catInfo = FIXED_CATEGORIES.find(c => c.id === String(prod.category_id));
+        const catLabel = catInfo ? catInfo.name : 'SẢN PHẨM CASIO HERO DUY';
+        const prodTiers = storeState.tiers.filter(t => String(t.product_id) === String(prod.product_id));
+
+        const prodImgHtml = (prod.image_url && String(prod.image_url).trim() !== '')
+          ? `<img src="${escapeAttr(prod.image_url)}" alt="${escapeAttr(prod.product_name)}" onerror="this.parentElement.innerHTML='<div class=\\'img-empty-box\\'>Ảnh minh họa đang cập nhật</div>'" />`
+          : `<div class="img-empty-box"><strong>${escapeHtml(prod.product_name)}</strong><br/>(Đang chờ cập nhật URL ảnh thực tế)</div>`;
+
+        const tiersHtml = prodTiers.length > 0
+          ? `<div class="tiers-grid">${prodTiers.map(tier => renderTierCard(prod, tier)).join('')}</div>`
+          : `<div style="background: var(--white); border: 1px dashed var(--border); border-radius: 8px; padding: 20px; text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+              Hiện đang cập nhật các phân khúc giá cho dòng máy <strong>${escapeHtml(prod.product_name)}</strong>.
+              <a href="${escapeAttr(storeState.settings.zalo_url || 'https://zalo.me/0587231800')}" target="_blank" rel="noopener" style="color: var(--navy); font-weight: 700; text-decoration: underline; margin-left: 6px;">Nhấn để hỏi qua Zalo</a>
+             </div>`;
+
+        return `
+          <article class="product-block">
+            <div class="product-top">
+              <div class="product-img-frame">${prodImgHtml}</div>
+              <div>
+                <span class="product-meta-cat">${escapeHtml(catLabel)}</span>
+                <h3 class="product-name">${escapeHtml(prod.product_name)}</h3>
+                <p class="product-desc">${escapeHtml(prod.description || 'Đang cập nhật mô tả riêng cho dòng máy này.')}</p>
+                <div class="product-note">
+                  Mỗi phân khúc giá bên dưới tương ứng với tình trạng ngoại hình và phụ kiện đi kèm riêng biệt. Chọn phân khúc <strong>Còn hàng</strong> để điền biểu mẫu đặt mua nhanh.
+                </div>
+              </div>
+            </div>
+            <div class="tiers-container">
+              <div class="tiers-heading">
+                <span>Các Lựa Chọn Phân Khúc Giá (${prodTiers.length})</span>
+              </div>
+              ${tiersHtml}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderTierCard(prod, tier) {
+      const status = String(tier.status || 'CON_HANG').trim();
+      let badgeLabel = 'Còn hàng';
+      if (status === 'LIEN_HE') badgeLabel = 'Liên hệ thêm';
+      if (status === 'HET_HANG') badgeLabel = 'Hết hàng';
+
+      const priceFormatted = Number(tier.price || 0).toLocaleString('vi-VN') + 'đ';
+
+      const tierImgHtml = (tier.image_url && String(tier.image_url).trim() !== '')
+        ? `<div class="tier-thumb"><img src="${escapeAttr(tier.image_url)}" alt="${escapeAttr(tier.tier_name)}" onerror="this.parentElement.style.display='none'" /></div>`
+        : '';
+
+      const specs = [];
+      if (tier.description) specs.push(`<div class="tier-spec-row"><strong>Mô tả:</strong> ${escapeHtml(tier.description)}</div>`);
+      if (tier.condition) specs.push(`<div class="tier-spec-row"><strong>Ngoại hình:</strong> ${escapeHtml(tier.condition)}</div>`);
+      if (tier.accessories) specs.push(`<div class="tier-spec-row"><strong>Phụ kiện:</strong> ${escapeHtml(tier.accessories)}</div>`);
+      if (tier.warranty) specs.push(`<div class="tier-spec-row"><strong>Bảo hành:</strong> ${escapeHtml(tier.warranty)}</div>`);
+
+      let actionButtonHtml = '';
+      if (status === 'CON_HANG') {
+        actionButtonHtml = `
+          <button type="button" class="btn-tier-order" onclick="openOrderModal('${escapeJs(prod.product_id)}', '${escapeJs(tier.tier_id)}')">
+            Chọn đặt phân khúc này
+          </button>
+        `;
+      } else if (status === 'LIEN_HE') {
+        const zaloLink = storeState.settings.zalo_url || 'https://zalo.me/0587231800';
+        actionButtonHtml = `
+          <a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-tier-zalo">
+            Liên hệ Zalo tư vấn
+          </a>
+        `;
+      } else {
+        actionButtonHtml = `
+          <button type="button" class="btn-tier-disabled" disabled>
+            Tạm hết hàng
+          </button>
+        `;
+      }
+
+      return `
+        <div class="tier-card">
+          <div>
+            <div class="tier-top-bar">
+              <div class="tier-name">${escapeHtml(tier.tier_name)}</div>
+              <span class="status-badge status-${escapeAttr(status)}">${badgeLabel}</span>
+            </div>
+            <div class="tier-price">${priceFormatted}</div>
+            ${tierImgHtml}
+            <div class="tier-specs">
+              ${specs.join('')}
+            </div>
+          </div>
+          <div>${actionButtonHtml}</div>
+        </div>
+      `;
+    }
+
+    /* ================= XỬ LÝ MODAL ĐẶT HÀNG ================= */
+    function openOrderModal(productId, tierId) {
+      const prod = storeState.products.find(p => String(p.product_id) === String(productId));
+      const tier = storeState.tiers.find(t => String(t.tier_id) === String(tierId));
+
+      if (!prod || !tier) {
+        showToast('Không tìm thấy thông tin phân khúc đã chọn.');
+        return;
+      }
+
+      if (String(tier.status) !== 'CON_HANG') {
+        showToast('Phân khúc này hiện không thể đặt trực tiếp.');
+        return;
+      }
+
+      document.getElementById('orderProductId').value = prod.product_id;
+      document.getElementById('orderTierId').value = tier.tier_id;
+      document.getElementById('orderUnitPriceRaw').value = Number(tier.price || 0);
+
+      document.getElementById('summaryProductName').textContent = prod.product_name;
+      document.getElementById('summaryTierName').textContent = tier.tier_name + ' — ' + Number(tier.price || 0).toLocaleString('vi-VN') + 'đ';
+
+      document.getElementById('orderProductName').value = prod.product_name;
+      document.getElementById('orderTierName').value = tier.tier_name;
+      document.getElementById('orderPriceDisplay').value = Number(tier.price || 0).toLocaleString('vi-VN') + 'đ';
+      document.getElementById('orderQuantity').value = 1;
+      document.getElementById('orderConfirmCheck').checked = false;
+
+      updateEstimatedTotal();
+      document.getElementById('orderModal').classList.add('open');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.remove('open');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('successModal').classList.remove('open');
+    }
+
+    function updateEstimatedTotal() {
+      const unitPrice = Number(document.getElementById('orderUnitPriceRaw').value || 0);
+      const qty = Math.max(1, parseInt(document.getElementById('orderQuantity').value || '1', 10));
+      const total = unitPrice * qty;
+      document.getElementById('orderTotalDisplay').value = total.toLocaleString('vi-VN') + 'đ';
+    }
+
+    async function submitOrderForm(e) {
+      e.preventDefault();
+
+      if (!API_URL || API_URL.includes('DAN_URL_GOOGLE_APPS_SCRIPT')) {
+        showToast('Cửa hàng đang hoàn tất kết nối Google Sheets. Vui lòng liên hệ Zalo để đặt hàng trực tiếp!');
+        return;
+      }
+
+      const customerName = document.getElementById('customerName').value.trim();
+      const customerPhone = document.getElementById('customerPhone').value.trim().replace(/\s+/g, '');
+      const customerAddress = document.getElementById('customerAddress').value.trim();
+      const quantity = parseInt(document.getElementById('orderQuantity').value, 10);
+      const confirmed = document.getElementById('orderConfirmCheck').checked;
+
+      if (!/^0\d{9,10}$/.test(customerPhone)) {
+        showToast('Vui lòng nhập số điện thoại hợp lệ (10 chữ số bắt đầu bằng số 0).');
+        return;
+      }
+
+      if (!confirmed) {
+        showToast('Vui lòng tích chọn xác nhận thông tin đặt hàng.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitOrderBtn');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'ĐANG GỬI YÊU CẦU...';
+
+      try {
+        const payload = {
+          action: 'submitOrder',
+          order: {
+            customer_name: customerName,
+            phone: customerPhone,
+            address: customerAddress,
+            product_id: document.getElementById('orderProductId').value,
+            tier_id: document.getElementById('orderTierId').value,
+            quantity: quantity
+          }
+        };
+
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+        if (result && result.success && result.order) {
+          closeOrderModal();
+          document.getElementById('orderForm').reset();
+          document.getElementById('successOrderId').textContent = result.order.order_id;
+          document.getElementById('successModal').classList.add('open');
+        } else {
+          showToast(result.message || 'Không thể gửi yêu cầu đặt hàng. Vui lòng thử lại hoặc nhắn Zalo.');
+        }
+      } catch (err) {
+        showToast('Lỗi kết nối máy chủ. Vui lòng kiểm tra mạng hoặc liên hệ Zalo cửa hàng.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
+
+    /* ================= TIỆN ÍCH GIAO DIỆN ================= */
+    function toggleMobileNav() {
+      document.getElementById('mainNav').classList.toggle('open');
+    }
+
+    function closeMobileNav() {
+      document.getElementById('mainNav').classList.remove('open');
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById('toastBox');
+      box.textContent = msg;
+      box.style.display = 'block';
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        box.style.display = 'none';
+      }, 4200);
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function escapeAttr(str) {
+      return escapeHtml(str).replace(/'/g, '&#39;');
+    }
+
+    function escapeJs(str) {
+      return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    }
+  </script>
+</body>
+</html>
