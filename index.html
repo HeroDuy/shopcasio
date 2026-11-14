@@ -2327,7 +2327,7 @@ function applyStoreData(data) {
     async function submitOrderForm(e) {
       e.preventDefault();
 
-      if (!API_URL || API_URL.includes('DAN_URL_GOOGLE_APPS_SCRIPT')) {
+      if (!API_URL || API_URL.includes('https://script.google.com/macros/s/AKfycbwx8CtdX26l16FzHmSlgVB7P0uL9tijjhXhJKc8mPndYFKzKVvJWZfN0xtML0IAlfar/exec')) {
         showToast('Cửa hàng đang hoàn tất kết nối Google Sheets. Vui lòng liên hệ Zalo để đặt hàng trực tiếp!');
         return;
       }
