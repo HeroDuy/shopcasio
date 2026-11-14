@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản Trị Hệ Thống | CASIO HERO DUY</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #14243A;
+      --navy-light: #1E3452;
+      --gold: #D6B56D;
+      --ivory: #F8F7F3;
+      --white: #FFFFFF;
+      --text-primary: #202938;
+      --text-secondary: #6B7280;
+      --border: #E5E7EB;
+      --success: #18865B;
+      --warning: #D69A35;
+      --danger: #D9534F;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: var(--ivory);
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    /* ================= LOGIN SCREEN ================= */
+    .login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--navy);
+      padding: 20px;
+    }
+
+    .login-card {
+      background-color: var(--white);
+      width: 100%;
+      max-width: 420px;
+      border-radius: 14px;
+      padding: 36px 30px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+      border-top: 4px solid var(--gold);
+    }
+
+    .login-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .login-sub {
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    /* ================= ADMIN LAYOUT ================= */
+    .admin-wrapper {
+      display: none;
+      min-height: 100vh;
+    }
+
+    .admin-topbar {
+      background-color: var(--navy);
+      color: var(--white);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 800;
+    }
+
+    .admin-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+
+    .admin-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+
+    /* Dashboard Metrics */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .metric-card {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .metric-label {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    /* Tabs Navigation */
+    .tabs-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: var(--white);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background-color: var(--navy);
+      color: var(--gold);
+      border-color: var(--navy);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Panels & Tables */
+    .panel-card {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: var(--ivory);
+      color: var(--navy);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Forms & Buttons */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-navy {
+      background-color: var(--navy);
+      color: var(--gold);
+    }
+
+    .btn-success {
+      background-color: var(--success);
+      color: var(--white);
+    }
+
+    .btn-danger {
+      background-color: var(--danger);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .img-preview-box {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      background-color: var(--ivory);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+    }
+
+    .img-preview-box img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      background: var(--white);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .badge {
+      padding: 4px 8px;
+      border-radius: 99px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .badge-green { background: rgba(24,134,91,0.14); color: var(--success); }
+    .badge-yellow { background: rgba(214,154,53,0.16); color: var(--warning); }
+    .badge-red { background: rgba(217,83,79,0.14); color: var(--danger); }
+
+    .toast-admin {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--navy);
+      color: var(--white);
+      border-left: 4px solid var(--gold);
+      padding: 14px 20px;
+      border-radius: 8px;
+      z-index: 3000;
+      display: none;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    @media (max-width: 900px) {
+      .metrics-grid, .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= MÀN HÌNH ĐĂNG NHẬP ================= -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="login-title">CASIO HERO DUY</div>
+      <div class="login-sub">Hệ thống Quản trị Website & Đồng bộ Google Sheets</div>
+      <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="adminPassword">Mật khẩu Quản trị viên</label>
+          <input type="password" id="adminPassword" class="form-control" placeholder="Nhập mật khẩu quản trị..." required />
+        </div>
+        <button type="submit" class="btn btn-navy" id="loginBtn" style="width: 100%; justify-content: center; padding: 12px;">
+          ĐĂNG NHẬP HỆ THỐNG
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= GIAO DIỆN QUẢN TRỊ CHÍNH ================= -->
+  <div class="admin-wrapper" id="adminWrapper">
+    <header class="admin-topbar">
+      <div class="admin-brand">CASIO HERO DUY — ADMIN DASHBOARD</div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button class="btn btn-outline" onclick="refreshAdminData()">↻ Làm mới dữ liệu</button>
+        <button class="btn btn-danger" onclick="logoutAdmin()">Đăng xuất</button>
+      </div>
+    </header>
+
+    <div class="admin-container">
+      <!-- 4 Thẻ thống kê Dashboard -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Tổng số dòng máy</div>
+          <div class="metric-value" id="statTotalProducts">0</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Phân khúc Còn hàng</div>
+          <div class="metric-value" id="statInStockTiers" style="color: var(--success);">0</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Phân khúc Hết hàng</div>
+          <div class="metric-value" id="statOutStockTiers" style="color: var(--danger);">0</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Yêu cầu đặt hàng mới</div>
+          <div class="metric-value" id="statNewOrders" style="color: var(--warning);">0</div>
+        </div>
+      </div>
+
+      <!-- Thanh chuyển Tab -->
+      <div class="tabs-bar">
+        <button class="tab-btn active" onclick="switchTab('tabProducts', this)">1. Quản lý Sản phẩm</button>
+        <button class="tab-btn" onclick="switchTab('tabTiers', this)">2. Quản lý Phân khúc giá</button>
+        <button class="tab-btn" onclick="switchTab('tabOrders', this)">3. Quản lý Đơn hàng</button>
+        <button class="tab-btn" onclick="switchTab('tabSettings', this)">4. Cấu hình Website & Hình ảnh</button>
+      </div>
+
+      <!-- TAB 1: QUẢN LÝ SẢN PHẨM -->
+      <div class="tab-panel active" id="tabProducts">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title" id="prodFormTitle">Thêm / Chỉnh sửa Dòng máy</div>
+            <button class="btn btn-outline" onclick="resetProductForm()">+ Tạo dòng máy mới</button>
+          </div>
+          <form onsubmit="saveProductForm(event)">
+            <input type="hidden" id="prodId" />
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Tên dòng máy *</label>
+                <input type="text" id="prodName" class="form-control" placeholder="VD: CASIO FX-580VN X" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Danh mục chính *</label>
+                <select id="prodCategory" class="form-control" required>
+                  <option value="CAT_01">Danh mục 01 – CASIO FX-570</option>
+                  <option value="CAT_02">Danh mục 02 – CASIO FX-580VN X</option>
+                  <option value="CAT_03">Danh mục 03 – CASIO FX-880</option>
+                  <option value="CAT_04">Danh mục 04 – FLEXIO 799VN</option>
+                  <option value="CAT_05">Danh mục 05 – VINACAL VÀ CÁC DÒNG KHÁC</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Thứ tự ưu tiên hiển thị</label>
+                <input type="number" id="prodOrder" class="form-control" value="1" min="1" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Trạng thái hiển thị trên Website</label>
+                <select id="prodVisible" class="form-control">
+                  <option value="true">Hiển thị công khai</option>
+                  <option value="false">Tạm ẩn sản phẩm</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">URL Hình ảnh đại diện dòng máy</label>
+                <input type="url" id="prodImgUrl" class="form-control" placeholder="https://..." oninput="previewImage(this.value, 'prodImgPreview', 'prodImgStatus')" />
+                <div class="img-preview-box">
+                  <img id="prodImgPreview" src="" alt="Preview" style="display: none;" />
+                  <span id="prodImgStatus" style="font-size: 0.82rem; color: var(--text-secondary);">Nhập URL ảnh trực tuyến để kiểm tra và xem trước.</span>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Mô tả công dụng & Đối tượng phù hợp (Viết riêng cho từng dòng máy) *</label>
+                <textarea id="prodDesc" class="form-control" rows="3" required placeholder="Nhập mô tả công dụng và đối tượng học sinh, sinh viên phù hợp..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-navy" id="saveProdBtn">Lưu thông tin Sản phẩm</button>
+          </form>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">Danh sách Dòng máy hiện có</div>
+          </div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Thứ tự</th>
+                  <th>Mã SP</th>
+                  <th>Tên dòng máy</th>
+                  <th>Danh mục</th>
+                  <th>Số phân khúc</th>
+                  <th>Hiển thị</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="adminProductsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: QUẢN LÝ PHÂN KHÚC GIÁ -->
+      <div class="tab-panel" id="tabTiers">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title" id="tierFormTitle">Thêm / Chỉnh sửa Phân khúc giá</div>
+            <button class="btn btn-outline" onclick="resetTierForm()">+ Tạo phân khúc mới</button>
+          </div>
+          <form onsubmit="saveTierForm(event)">
+            <input type="hidden" id="tierId" />
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Thuộc dòng máy *</label>
+                <select id="tierProductId" class="form-control" required></select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tên phân khúc *</label>
+                <input type="text" id="tierName" class="form-control" placeholder="VD: Phân khúc Phổ thông / Ngoại hình 95%" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Giá bán (VNĐ) *</label>
+                <input type="number" id="tierPrice" class="form-control" placeholder="VD: 149000" min="0" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Trạng thái hàng hóa *</label>
+                <select id="tierStatus" class="form-control" required>
+                  <option value="CON_HANG">Còn hàng (Cho phép đặt trên web)</option>
+                  <option value="LIEN_HE">Liên hệ thêm (Đổi sang nút Zalo)</option>
+                  <option value="HET_HANG">Hết hàng (Vô hiệu hóa nút đặt)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mô tả tình trạng</label>
+                <input type="text" id="tierDesc" class="form-control" placeholder="VD: Máy nguyên bản, tính năng ổn định" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Đặc điểm ngoại hình</label>
+                <input type="text" id="tierCondition" class="form-control" placeholder="VD: Vỏ sáng đẹp, phím rõ chữ" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phụ kiện đi kèm / Hộp</label>
+                <input type="text" id="tierAccessories" class="form-control" placeholder="VD: Nắp trượt, pin mới" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Chính sách bảo hành</label>
+                <input type="text" id="tierWarranty" class="form-control" placeholder="VD: Bảo hành 1 đổi 1 theo chính sách shop" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Thứ tự sắp xếp</label>
+                <input type="number" id="tierOrder" class="form-control" value="1" min="1" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">URL Ảnh minh họa riêng cho phân khúc (Tùy chọn)</label>
+                <input type="url" id="tierImgUrl" class="form-control" placeholder="https://..." oninput="previewImage(this.value, 'tierImgPreview', 'tierImgStatus')" />
+                <div class="img-preview-box">
+                  <img id="tierImgPreview" src="" alt="Preview" style="display: none;" />
+                  <span id="tierImgStatus" style="font-size: 0.82rem; color: var(--text-secondary);">Chưa nhập URL ảnh.</span>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-navy" id="saveTierBtn">Lưu Phân khúc giá</button>
+          </form>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">Danh sách Phân khúc giá</div>
+          </div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dòng máy</th>
+                  <th>Tên phân khúc</th>
+                  <th>Giá bán</th>
+                  <th>Trạng thái</th>
+                  <th>Ngoại hình / Phụ kiện</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="adminTiersTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: QUẢN LÝ ĐƠN HÀNG -->
+      <div class="tab-panel" id="tabOrders">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">Danh sách Yêu cầu Đặt hàng từ Khách hàng</div>
+          </div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã đơn</th>
+                  <th>Ngày đặt</th>
+                  <th>Khách hàng</th>
+                  <th>SĐT</th>
+                  <th>Địa chỉ</th>
+                  <th>Sản phẩm & Phân khúc</th>
+                  <th>SL</th>
+                  <th>Tổng tiền</th>
+                  <th>Trạng thái đơn</th>
+                </tr>
+              </thead>
+              <tbody id="adminOrdersTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: CẤU HÌNH CHUNG & SAO LƯU -->
+      <div class="tab-panel" id="tabSettings">
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">Cấu hình Thương hiệu, Hình ảnh, Zalo & Chính sách</div>
+            <button class="btn btn-outline" onclick="exportBackupJson()">⬇ Sao lưu dữ liệu (JSON)</button>
+          </div>
+          <form onsubmit="saveSettingsForm(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Tên thương hiệu</label>
+                <input type="text" id="set_brand_name" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Thông điệp Hero (Tagline)</label>
+                <input type="text" id="set_brand_tagline" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">URL Logo chính thức</label>
+                <input type="url" id="set_logo_url" class="form-control" oninput="previewImage(this.value, 'logoPreview', 'logoStatus')" />
+                <div class="img-preview-box">
+                  <img id="logoPreview" src="" alt="Logo" style="display:none;" />
+                  <span id="logoStatus" style="font-size:0.8rem;">Xem trước Logo</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">URL Ảnh Banner khu vực Hero</label>
+                <input type="url" id="set_hero_banner_url" class="form-control" oninput="previewImage(this.value, 'bannerPreview', 'bannerStatus')" />
+                <div class="img-preview-box">
+                  <img id="bannerPreview" src="" alt="Banner" style="display:none;" />
+                  <span id="bannerStatus" style="font-size:0.8rem;">Xem trước Banner</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Gmail nhận thông báo đơn hàng</label>
+                <input type="email" id="set_store_email" class="form-control" placeholder="VD: nguyenquocgiaduy050806@gmail.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Số điện thoại chính</label>
+                <input type="text" id="set_phone_number" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Số Zalo</label>
+                <input type="text" id="set_zalo_phone" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Đường dẫn Zalo (Zalo URL)</label>
+                <input type="url" id="set_zalo_url" class="form-control" placeholder="https://zalo.me/0587231800" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">URL Hình ảnh Mã QR Zalo</label>
+                <input type="url" id="set_zalo_qr_url" class="form-control" oninput="previewImage(this.value, 'qrPreview', 'qrStatus')" />
+                <div class="img-preview-box">
+                  <img id="qrPreview" src="" alt="QR" style="display:none;" />
+                  <span id="qrStatus" style="font-size:0.8rem;">Xem trước QR Zalo</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Địa chỉ cửa hàng</label>
+                <input type="text" id="set_store_address" class="form-control" />
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Mô tả Banner Hero</label>
+                <textarea id="set_hero_description" class="form-control" rows="2"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Đoạn văn Giới thiệu ngắn về cửa hàng</label>
+                <textarea id="set_about_text" class="form-control" rows="2"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Hướng dẫn mua hàng</label>
+                <textarea id="set_buying_guide" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Chính sách bảo hành</label>
+                <textarea id="set_policy_warranty" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Chính sách kiểm tra & đổi trả</label>
+                <textarea id="set_policy_return" class="form-control" rows="3"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Chính sách vận chuyển</label>
+                <textarea id="set_policy_shipping" class="form-control" rows="3"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-navy">Lưu Toàn Bộ Cấu Hình Website</button>
+          </form>
+        </div>
+
+        <!-- Đổi mật khẩu Admin -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">Đổi Mật Khẩu Quản Trị Viên</div>
+          </div>
+          <form onsubmit="changePasswordForm(event)" style="max-width: 460px;">
+            <div class="form-group">
+              <label class="form-label">Mật khẩu hiện tại</label>
+              <input type="password" id="oldAdminPass" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mật khẩu mới (tối thiểu 6 ký tự)</label>
+              <input type="password" id="newAdminPass" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-navy">Cập nhật mật khẩu</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast-admin" id="adminToast"></div>
+
+  <script>
+    /**
+     * DÁN CÙNG ĐƯỜNG DẪN WEB APP GOOGLE APPS SCRIPT (/exec) VÀO ĐÂY
+     */
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwx8CtdX26l16FzHmSlgVB7P0uL9tijjhXhJKc8mPndYFKzKVvJWZfN0xtML0IAlfar/exec';
+
+    let adminState = {
+      token: sessionStorage.getItem('CHD_ADMIN_TOKEN') || '',
+      settings: {},
+      products: [],
+      tiers: [],
+      orders: []
+    };
+
+    const ORDER_STATUSES = [
+      'Mới tiếp nhận',
+      'Đang xác nhận',
+      'Đã xác nhận',
+      'Đang giao',
+      'Hoàn tất',
+      'Đã hủy'
+    ];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (adminState.token) {
+        refreshAdminData();
+      }
+    });
+
+    async function apiPost(payload) {
+      if (!API_URL || API_URL.includes('DAN_URL_GOOGLE_APPS_SCRIPT')) {
+        throw new Error('Bạn chưa dán đường dẫn API_URL của Google Apps Script vào file admin.html.');
+      }
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ ...payload, token: adminState.token })
+      });
+      const json = await res.json();
+      if (json && json.unauthorized) {
+        logoutAdmin();
+      }
+      return json;
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('adminPassword').value;
+      const btn = document.getElementById('loginBtn');
+      btn.disabled = true;
+      btn.textContent = 'ĐANG XÁC THỰC...';
+
+      try {
+        const res = await apiPost({ action: 'adminLogin', password: pass });
+        if (res.success && res.token) {
+          adminState.token = res.token;
+          sessionStorage.setItem('CHD_ADMIN_TOKEN', res.token);
+          applyAdminData(res.data);
+          document.getElementById('loginScreen').style.display = 'none';
+          document.getElementById('adminWrapper').style.display = 'block';
+          showToast('Đăng nhập hệ thống quản trị thành công.');
+        } else {
+          showToast(res.message || 'Mật khẩu không đúng.');
+        }
+      } catch (err) {
+        showToast(err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'ĐĂNG NHẬP HỆ THỐNG';
+      }
+    }
+
+    function logoutAdmin() {
+      adminState.token = '';
+      sessionStorage.removeItem('CHD_ADMIN_TOKEN');
+      document.getElementById('adminWrapper').style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'flex';
+      document.getElementById('adminPassword').value = '';
+    }
+
+    async function refreshAdminData() {
+      try {
+        const res = await apiPost({ action: 'getAdminData' });
+        if (res.success && res.data) {
+          applyAdminData(res.data);
+          document.getElementById('loginScreen').style.display = 'none';
+          document.getElementById('adminWrapper').style.display = 'block';
+        }
+      } catch (err) {
+        showToast(err.message);
+      }
+    }
+
+    function applyAdminData(data) {
+      adminState.settings = data.settings || {};
+      adminState.products = data.products || [];
+      adminState.tiers = data.tiers || [];
+      adminState.orders = data.orders || [];
+
+      renderDashboardMetrics();
+      renderProductsAdmin();
+      renderTiersAdmin();
+      renderOrdersAdmin();
+      populateSettingsForm();
+    }
+
+    function renderDashboardMetrics() {
+      document.getElementById('statTotalProducts').textContent = adminState.products.length;
+      document.getElementById('statInStockTiers').textContent = adminState.tiers.filter(t => t.status === 'CON_HANG').length;
+      document.getElementById('statOutStockTiers').textContent = adminState.tiers.filter(t => t.status === 'HET_HANG').length;
+      document.getElementById('statNewOrders').textContent = adminState.orders.filter(o => o.order_status === 'Mới tiếp nhận').length;
+    }
+
+    function renderProductsAdmin() {
+      const tbody = document.getElementById('adminProductsTable');
+      const selectProd = document.getElementById('tierProductId');
+
+      selectProd.innerHTML = adminState.products.map(p =>
+        `<option value="${escapeAttr(p.product_id)}">${escapeHtml(p.product_name)} (${escapeHtml(p.category_id)})</option>`
+      ).join('');
+
+      tbody.innerHTML = adminState.products.map(p => {
+        const countTiers = adminState.tiers.filter(t => String(t.product_id) === String(p.product_id)).length;
+        const isVis = String(p.is_visible).toLowerCase() === 'true' || p.is_visible === true;
+        return `
+          <tr>
+            <td>${p.display_order || 1}</td>
+            <td><code>${escapeHtml(p.product_id)}</code></td>
+            <td><strong>${escapeHtml(p.product_name)}</strong></td>
+            <td>${escapeHtml(p.category_id)}</td>
+            <td>${countTiers} phân khúc</td>
+            <td><span class="badge ${isVis ? 'badge-green' : 'badge-red'}">${isVis ? 'Đang hiện' : 'Đã ẩn'}</span></td>
+            <td style="white-space: nowrap;">
+              <button class="btn btn-outline" onclick="editProduct('${escapeJs(p.product_id)}')">Sửa</button>
+              <button class="btn btn-danger" onclick="deleteProduct('${escapeJs(p.product_id)}')">Xóa</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function editProduct(prodId) {
+      const p = adminState.products.find(x => String(x.product_id) === String(prodId));
+      if (!p) return;
+      document.getElementById('prodId').value = p.product_id;
+      document.getElementById('prodName').value = p.product_name || '';
+      document.getElementById('prodCategory').value = p.category_id || 'CAT_01';
+      document.getElementById('prodOrder').value = p.display_order || 1;
+      document.getElementById('prodVisible').value = (String(p.is_visible).toLowerCase() === 'true' || p.is_visible === true) ? 'true' : 'false';
+      document.getElementById('prodImgUrl').value = p.image_url || '';
+      document.getElementById('prodDesc').value = p.description || '';
+      previewImage(p.image_url || '', 'prodImgPreview', 'prodImgStatus');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetProductForm() {
+      document.getElementById('prodId').value = '';
+      document.getElementById('prodName').value = '';
+      document.getElementById('prodImgUrl').value = '';
+      document.getElementById('prodDesc').value = '';
+      previewImage('', 'prodImgPreview', 'prodImgStatus');
+    }
+
+    async function saveProductForm(e) {
+      e.preventDefault();
+      const payload = {
+        action: 'saveProduct',
+        product: {
+          product_id: document.getElementById('prodId').value,
+          product_name: document.getElementById('prodName').value,
+          category_id: document.getElementById('prodCategory').value,
+          display_order: Number(document.getElementById('prodOrder').value || 1),
+          is_visible: document.getElementById('prodVisible').value === 'true',
+          image_url: document.getElementById('prodImgUrl').value,
+          description: document.getElementById('prodDesc').value
+        }
+      };
+      const res = await apiPost(payload);
+      if (res.success) {
+        applyAdminData(res.data);
+        resetProductForm();
+      }
+      showToast(res.message);
+    }
+
+    async function deleteProduct(prodId) {
+      if (!confirm('Xác nhận xóa dòng máy này và toàn bộ phân khúc giá trực thuộc?')) return;
+      const res = await apiPost({ action: 'deleteProduct', product_id: prodId });
+      if (res.success) applyAdminData(res.data);
+      showToast(res.message);
+    }
+
+    /* ================= QUẢN LÝ PHÂN KHÚC ================= */
+    function renderTiersAdmin() {
+      const tbody = document.getElementById('adminTiersTable');
+      tbody.innerHTML = adminState.tiers.map(t => {
+        const prod = adminState.products.find(p => String(p.product_id) === String(t.product_id));
+        const prodName = prod ? prod.product_name : t.product_id;
+        let badgeClass = 'badge-green';
+        if (t.status === 'LIEN_HE') badgeClass = 'badge-yellow';
+        if (t.status === 'HET_HANG') badgeClass = 'badge-red';
+
+        return `
+          <tr>
+            <td><strong>${escapeHtml(prodName)}</strong></td>
+            <td>${escapeHtml(t.tier_name)}</td>
+            <td style="font-weight:700; color:var(--navy);">${Number(t.price || 0).toLocaleString('vi-VN')}đ</td>
+            <td><span class="badge ${badgeClass}">${escapeHtml(t.status)}</span></td>
+            <td>${escapeHtml(t.condition || '')} ${t.accessories ? ' | ' + escapeHtml(t.accessories) : ''}</td>
+            <td style="white-space: nowrap;">
+              <button class="btn btn-outline" onclick="editTier('${escapeJs(t.tier_id)}')">Sửa</button>
+              <button class="btn btn-danger" onclick="deleteTier('${escapeJs(t.tier_id)}')">Xóa</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function editTier(tierId) {
+      const t = adminState.tiers.find(x => String(x.tier_id) === String(tierId));
+      if (!t) return;
+      document.getElementById('tierId').value = t.tier_id;
+      document.getElementById('tierProductId').value = t.product_id;
+      document.getElementById('tierName').value = t.tier_name || '';
+      document.getElementById('tierPrice').value = t.price || 0;
+      document.getElementById('tierStatus').value = t.status || 'CON_HANG';
+      document.getElementById('tierDesc').value = t.description || '';
+      document.getElementById('tierCondition').value = t.condition || '';
+      document.getElementById('tierAccessories').value = t.accessories || '';
+      document.getElementById('tierWarranty').value = t.warranty || '';
+      document.getElementById('tierOrder').value = t.display_order || 1;
+      document.getElementById('tierImgUrl').value = t.image_url || '';
+      previewImage(t.image_url || '', 'tierImgPreview', 'tierImgStatus');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetTierForm() {
+      document.getElementById('tierId').value = '';
+      document.getElementById('tierName').value = '';
+      document.getElementById('tierPrice').value = '';
+      document.getElementById('tierDesc').value = '';
+      document.getElementById('tierCondition').value = '';
+      document.getElementById('tierAccessories').value = '';
+      document.getElementById('tierWarranty').value = '';
+      document.getElementById('tierImgUrl').value = '';
+      previewImage('', 'tierImgPreview', 'tierImgStatus');
+    }
+
+    async function saveTierForm(e) {
+      e.preventDefault();
+      const payload = {
+        action: 'saveTier',
+        tier: {
+          tier_id: document.getElementById('tierId').value,
+          product_id: document.getElementById('tierProductId').value,
+          tier_name: document.getElementById('tierName').value,
+          price: Number(document.getElementById('tierPrice').value || 0),
+          status: document.getElementById('tierStatus').value,
+          description: document.getElementById('tierDesc').value,
+          condition: document.getElementById('tierCondition').value,
+          accessories: document.getElementById('tierAccessories').value,
+          warranty: document.getElementById('tierWarranty').value,
+          display_order: Number(document.getElementById('tierOrder').value || 1),
+          image_url: document.getElementById('tierImgUrl').value
+        }
+      };
+      const res = await apiPost(payload);
+      if (res.success) {
+        applyAdminData(res.data);
+        resetTierForm();
+      }
+      showToast(res.message);
+    }
+
+    async function deleteTier(tierId) {
+      if (!confirm('Xác nhận xóa phân khúc giá này?')) return;
+      const res = await apiPost({ action: 'deleteTier', tier_id: tierId });
+      if (res.success) applyAdminData(res.data);
+      showToast(res.message);
+    }
+
+    /* ================= QUẢN LÝ ĐƠN HÀNG ================= */
+    function renderOrdersAdmin() {
+      const tbody = document.getElementById('adminOrdersTable');
+      if (adminState.orders.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding: 24px;">Chưa có yêu cầu đặt hàng nào.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = adminState.orders.map(o => {
+        const optionsHtml = ORDER_STATUSES.map(st =>
+          `<option value="${st}" ${String(o.order_status) === st ? 'selected' : ''}>${st}</option>`
+        ).join('');
+
+        return `
+          <tr>
+            <td><strong>${escapeHtml(o.order_id)}</strong></td>
+            <td>${escapeHtml(o.created_at)}</td>
+            <td><strong>${escapeHtml(o.customer_name)}</strong></td>
+            <td><a href="tel:${escapeAttr(o.phone)}" style="color:var(--navy);font-weight:700;">${escapeHtml(o.phone)}</a></td>
+            <td>${escapeHtml(o.address)}</td>
+            <td>${escapeHtml(o.product_name)}<br/><small style="color:var(--text-secondary);">${escapeHtml(o.tier_name)}</small></td>
+            <td>${o.quantity}</td>
+            <td style="font-weight:700; color:var(--success);">${Number(o.total_amount || 0).toLocaleString('vi-VN')}đ</td>
+            <td>
+              <select class="form-control" style="padding: 6px; font-size:0.82rem;" onchange="changeOrderStatus('${escapeJs(o.order_id)}', this.value)">
+                ${optionsHtml}
+              </select>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function changeOrderStatus(orderId, newStatus) {
+      const res = await apiPost({ action: 'updateOrderStatus', order_id: orderId, order_status: newStatus });
+      if (res.success) applyAdminData(res.data);
+      showToast(res.message);
+    }
+
+    /* ================= CẤU HÌNH SETTINGS & KIỂM TRA ẢNH ================= */
+    const SETTING_KEYS = [
+      'brand_name', 'brand_tagline', 'logo_url', 'hero_banner_url',
+      'store_email', 'phone_number', 'zalo_phone', 'zalo_url', 'zalo_qr_url',
+      'store_address', 'hero_description', 'about_text', 'buying_guide',
+      'policy_warranty', 'policy_return', 'policy_shipping'
+    ];
+
+    function populateSettingsForm() {
+      SETTING_KEYS.forEach(k => {
+        const el = document.getElementById('set_' + k);
+        if (el) el.value = adminState.settings[k] || '';
+      });
+      previewImage(adminState.settings.logo_url || '', 'logoPreview', 'logoStatus');
+      previewImage(adminState.settings.hero_banner_url || '', 'bannerPreview', 'bannerStatus');
+      previewImage(adminState.settings.zalo_qr_url || '', 'qrPreview', 'qrStatus');
+    }
+
+    async function saveSettingsForm(e) {
+      e.preventDefault();
+      const updated = {};
+      SETTING_KEYS.forEach(k => {
+        const el = document.getElementById('set_' + k);
+        if (el) updated[k] = el.value.trim();
+      });
+      const res = await apiPost({ action: 'saveSettings', settings: updated });
+      if (res.success) applyAdminData(res.data);
+      showToast(res.message);
+    }
+
+    async function changePasswordForm(e) {
+      e.preventDefault();
+      const oldPassword = document.getElementById('oldAdminPass').value;
+      const newPassword = document.getElementById('newAdminPass').value;
+      const res = await apiPost({ action: 'changeAdminPassword', oldPassword, newPassword });
+      if (res.success && res.token) {
+        adminState.token = res.token;
+        sessionStorage.setItem('CHD_ADMIN_TOKEN', res.token);
+        document.getElementById('oldAdminPass').value = '';
+        document.getElementById('newAdminPass').value = '';
+      }
+      showToast(res.message);
+    }
+
+    function previewImage(url, imgId, statusId) {
+      const img = document.getElementById(imgId);
+      const status = document.getElementById(statusId);
+      const cleanUrl = String(url || '').trim();
+      if (!cleanUrl) {
+        img.style.display = 'none';
+        status.textContent = 'Chưa có đường dẫn URL ảnh.';
+        status.style.color = 'var(--text-secondary)';
+        return;
+      }
+      img.src = cleanUrl;
+      img.onload = () => {
+        img.style.display = 'block';
+        status.textContent = '✓ Đường dẫn ảnh hợp lệ.';
+        status.style.color = 'var(--success)';
+      };
+      img.onerror = () => {
+        img.style.display = 'none';
+        status.textContent = '✕ Lỗi đường dẫn: Không thể tải hình ảnh từ URL này.';
+        status.style.color = 'var(--danger)';
+      };
+    }
+
+    function exportBackupJson() {
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(adminState, null, 2));
+      const a = document.createElement('a');
+      a.href = dataStr;
+      a.download = 'casio-hero-duy-backup-' + new Date().toISOString().slice(0,10) + '.json';
+      a.click();
+    }
+
+    function switchTab(tabId, btnEl) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btnEl.classList.add('active');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('adminToast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      clearTimeout(window.__admToast);
+      window.__admToast = setTimeout(() => { t.style.display = 'none'; }, 4000);
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+    function escapeAttr(str) { return escapeHtml(str).replace(/'/g, '&#39;'); }
+    function escapeJs(str) { return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'"); }
+  </script>
+</body>
+</html>
