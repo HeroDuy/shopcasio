@@ -754,7 +754,7 @@
       .quick-tier-action {
         width: 100%;
       }
-
+.quick-tier-action .btn-tier-action,
       .quick-tier-action .btn-tier-order,
       .quick-tier-action .btn-tier-zalo,
       .quick-tier-action .btn-tier-disabled {
@@ -762,109 +762,13 @@
         font-size: 0.96rem;
       }
     }
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-3px);
-    }
 
-    .cat-card.active {
-      background-color: var(--navy);
-      color: var(--white);
-    }
-
-    .cat-thumb {
-      height: 110px;
-      background-color: var(--ivory);
-      border-radius: 8px;
-      margin-bottom: 14px;
+    /* ================= PRODUCT SHOWCASE & TIERS ================= */
+    .products-list {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border: 1px solid var(--border);
+      flex-direction: column;
+      gap: 32px;
     }
-
-    .cat-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 8px;
-    }
-
-    .cat-code-badge {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--navy);
-      padding: 8px 12px;
-      text-align: center;
-    }
-
-    .cat-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .cat-desc {
-      font-size: 0.83rem;
-      color: var(--text-secondary);
-      margin-bottom: 14px;
-    }
-
-    .cat-card.active .cat-desc {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .cat-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .cat-card.active .cat-footer {
-      border-top-color: rgba(255, 255, 255, 0.2);
-      color: var(--gold);
-    }
-
-    .filter-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 36px 0 24px;
-      padding: 16px 20px;
-      background-color: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .filter-status-text {
-      font-weight: 600;
-      color: var(--navy);
-      font-size: 0.95rem;
-    }
-
-    .btn-reset-filter {
-      background-color: var(--ivory);
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-reset-filter:hover {
-      border-color: var(--navy);
-    }
-
     /* ================= PRODUCT SHOWCASE & TIERS ================= */
     .products-list {
       display: flex;
@@ -2259,20 +2163,6 @@ function applyStoreData(data) {
         }
       }
     }
-      storeState.activeCategory = catId;
-      renderCategories();
-      renderProducts();
-
-      const statusEl = document.getElementById('filterStatusText');
-      if (catId === 'ALL') {
-        statusEl.textContent = 'Đang hiển thị: Tất cả danh mục sản phẩm';
-      } else {
-        const found = FIXED_CATEGORIES.find(c => c.id === catId);
-        statusEl.textContent = 'Đang lọc theo danh mục: ' + (found ? found.name : catId);
-      }
-    }
-
-    function renderProducts() {
       const container = document.getElementById('productsContainer');
       const filteredProducts = storeState.activeCategory === 'ALL'
         ? storeState.products
