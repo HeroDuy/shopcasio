@@ -87,6 +87,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
       border-bottom: 2px solid var(--gold);
       position: sticky;
       top: 0;
@@ -314,6 +316,7 @@
       border-radius: 99px;
       font-size: 0.74rem;
       font-weight: 700;
+      display: inline-block;
     }
 
     .badge-green { background: rgba(24,134,91,0.14); color: var(--success); }
@@ -393,10 +396,10 @@
 
       <!-- Thanh chuyển Tab -->
       <div class="tabs-bar">
-        <button class="tab-btn active" onclick="switchTab('tabProducts', this)">1. Quản lý Sản phẩm</button>
-        <button class="tab-btn" onclick="switchTab('tabTiers', this)">2. Quản lý Phân khúc giá</button>
-        <button class="tab-btn" onclick="switchTab('tabOrders', this)">3. Quản lý Đơn hàng</button>
-        <button class="tab-btn" onclick="switchTab('tabSettings', this)">4. Cấu hình Website & Hình ảnh</button>
+        <button class="tab-btn active" id="tabBtnProducts" onclick="switchTab('tabProducts', this)">1. Quản lý Sản phẩm</button>
+        <button class="tab-btn" id="tabBtnTiers" onclick="switchTab('tabTiers', this)">2. Quản lý Phân khúc giá</button>
+        <button class="tab-btn" id="tabBtnOrders" onclick="switchTab('tabOrders', this)">3. Quản lý Đơn hàng</button>
+        <button class="tab-btn" id="tabBtnSettings" onclick="switchTab('tabSettings', this)">4. Cấu hình Website & Hình ảnh</button>
       </div>
 
       <!-- TAB 1: QUẢN LÝ SẢN PHẨM -->
@@ -413,8 +416,8 @@
                 <label class="form-label">Tên dòng máy *</label>
                 <input type="text" id="prodName" class="form-control" placeholder="VD: CASIO FX-580VN X" required />
               </div>
-            <div class="form-group">
-                <label class="form-label">Danh mục chính *</label>
+              <div class="form-group">
+                <label class="form-label">Danh mục chính (6 danh mục độc lập) *</label>
                 <select id="prodCategory" class="form-control" required>
                   <option value="CAT_01">Danh mục 01 – CASIO FX-570</option>
                   <option value="CAT_02">Danh mục 02 – CASIO FX-580VN X</option>
@@ -506,11 +509,11 @@
                 </select>
               </div>
               <div class="form-group">
-                <label class="form-label">Mô tả tình trạng</label>
+                <label class="form-label">Mô tả sản phẩm / Tình trạng chức năng</label>
                 <input type="text" id="tierDesc" class="form-control" placeholder="VD: Máy nguyên bản, tính năng ổn định" />
               </div>
               <div class="form-group">
-                <label class="form-label">Đặc điểm ngoại hình</label>
+                <label class="form-label">Tình trạng ngoại hình</label>
                 <input type="text" id="tierCondition" class="form-control" placeholder="VD: Vỏ sáng đẹp, phím rõ chữ" />
               </div>
               <div class="form-group">
@@ -540,17 +543,24 @@
 
         <div class="panel-card">
           <div class="panel-header">
-            <div class="panel-title">Danh sách Phân khúc giá</div>
+            <div class="panel-title">Danh sách Phân khúc giá hiện có</div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <label for="filterTierByProd" style="font-size: 0.85rem; font-weight: 600; color: var(--navy);">Lọc theo dòng máy:</label>
+              <select id="filterTierByProd" class="form-control" style="width: auto; padding: 7px 12px;" onchange="renderTiersAdmin()">
+                <option value="ALL">Tất cả dòng máy</option>
+              </select>
+            </div>
           </div>
           <div class="table-responsive">
             <table>
               <thead>
                 <tr>
+                  <th>Thứ tự</th>
                   <th>Dòng máy</th>
                   <th>Tên phân khúc</th>
                   <th>Giá bán</th>
                   <th>Trạng thái</th>
-                  <th>Ngoại hình / Phụ kiện</th>
+                  <th>Ngoại hình / Phụ kiện / Bảo hành</th>
                   <th>Thao tác</th>
                 </tr>
               </thead>
@@ -703,9 +713,18 @@
 
   <script>
     /**
-     * DÁN CÙNG ĐƯỜNG DẪN WEB APP GOOGLE APPS SCRIPT (/exec) VÀO ĐÂY
+     * ĐƯỜNG DẪN WEB APP GOOGLE APPS SCRIPT (/exec)
      */
     const API_URL = 'https://script.google.com/macros/s/AKfycbwx8CtdX26l16FzHmSlgVB7P0uL9tijjhXhJKc8mPndYFKzKVvJWZfN0xtML0IAlfar/exec';
+
+    const CATEGORY_LABELS = {
+      'CAT_01': 'CAT_01 – CASIO FX-570',
+      'CAT_02': 'CAT_02 – CASIO FX-580VN X',
+      'CAT_03': 'CAT_03 – CASIO FX-880',
+      'CAT_04': 'CAT_04 – FLEXIO 799VN',
+      'CAT_05': 'CAT_05 – VINACAL',
+      'CAT_06': 'CAT_06 – CÁC DÒNG MÁY KHÁC'
+    };
 
     let adminState = {
       token: sessionStorage.getItem('CHD_ADMIN_TOKEN') || '',
@@ -732,7 +751,7 @@
 
     async function apiPost(payload) {
       if (!API_URL || API_URL.includes('DAN_URL_GOOGLE_APPS_SCRIPT')) {
-        throw new Error('Bạn chưa dán đường dẫn API_URL của Google Apps Script vào file admin.html.');
+        throw new Error('Bạn chưa dán đường dẫn API_URL của Google Apps Script vào file quản trị.');
       }
       const res = await fetch(API_URL, {
         method: 'POST',
@@ -796,9 +815,9 @@
 
     function applyAdminData(data) {
       adminState.settings = data.settings || {};
-      adminState.products = data.products || [];
-      adminState.tiers = data.tiers || [];
-      adminState.orders = data.orders || [];
+      adminState.products = Array.isArray(data.products) ? data.products : [];
+      adminState.tiers = Array.isArray(data.tiers) ? data.tiers : [];
+      adminState.orders = Array.isArray(data.orders) ? data.orders : [];
 
       renderDashboardMetrics();
       renderProductsAdmin();
@@ -809,47 +828,88 @@
 
     function renderDashboardMetrics() {
       document.getElementById('statTotalProducts').textContent = adminState.products.length;
-      document.getElementById('statInStockTiers').textContent = adminState.tiers.filter(t => t.status === 'CON_HANG').length;
-      document.getElementById('statOutStockTiers').textContent = adminState.tiers.filter(t => t.status === 'HET_HANG').length;
-      document.getElementById('statNewOrders').textContent = adminState.orders.filter(o => o.order_status === 'Mới tiếp nhận').length;
+      document.getElementById('statInStockTiers').textContent = adminState.tiers.filter(t => String(t.status || '').trim() === 'CON_HANG').length;
+      document.getElementById('statOutStockTiers').textContent = adminState.tiers.filter(t => String(t.status || '').trim() === 'HET_HANG').length;
+      document.getElementById('statNewOrders').textContent = adminState.orders.filter(o => String(o.order_status || '').trim() === 'Mới tiếp nhận').length;
     }
 
     function renderProductsAdmin() {
       const tbody = document.getElementById('adminProductsTable');
       const selectProd = document.getElementById('tierProductId');
+      const filterSelect = document.getElementById('filterTierByProd');
+
+      const prevSelectedProd = selectProd.value;
+      const prevFilterProd = filterSelect ? filterSelect.value : 'ALL';
 
       selectProd.innerHTML = adminState.products.map(p =>
-        `<option value="${escapeAttr(p.product_id)}">${escapeHtml(p.product_name)} (${escapeHtml(p.category_id)})</option>`
+        `<option value="${escapeAttr(String(p.product_id || '').trim())}">${escapeHtml(p.product_name)} (${escapeHtml(p.category_id)})</option>`
       ).join('');
 
+      if (prevSelectedProd && adminState.products.some(p => String(p.product_id || '').trim() === prevSelectedProd)) {
+        selectProd.value = prevSelectedProd;
+      }
+
+      if (filterSelect) {
+        filterSelect.innerHTML = `<option value="ALL">Tất cả dòng máy (${adminState.tiers.length} phân khúc)</option>` +
+          adminState.products.map(p => {
+            const pId = String(p.product_id || '').trim();
+            const c = adminState.tiers.filter(t => String(t.product_id || '').trim() === pId).length;
+            return `<option value="${escapeAttr(pId)}">${escapeHtml(p.product_name)} (${c})</option>`;
+          }).join('');
+        if (prevFilterProd && (prevFilterProd === 'ALL' || adminState.products.some(p => String(p.product_id || '').trim() === prevFilterProd))) {
+          filterSelect.value = prevFilterProd;
+        }
+      }
+
       tbody.innerHTML = adminState.products.map(p => {
-        const countTiers = adminState.tiers.filter(t => String(t.product_id) === String(p.product_id)).length;
-        const isVis = String(p.is_visible).toLowerCase() === 'true' || p.is_visible === true;
+        const prodIdClean = String(p.product_id || '').trim();
+        const catIdClean = String(p.category_id || '').trim();
+        const countTiers = adminState.tiers.filter(t => String(t.product_id || '').trim() === prodIdClean).length;
+        const isVis = String(p.is_visible).trim().toLowerCase() === 'true' || p.is_visible === true;
+        const catDisplay = CATEGORY_LABELS[catIdClean] || catIdClean;
+
         return `
           <tr>
             <td>${p.display_order || 1}</td>
-            <td><code>${escapeHtml(p.product_id)}</code></td>
+            <td><code>${escapeHtml(prodIdClean)}</code></td>
             <td><strong>${escapeHtml(p.product_name)}</strong></td>
-            <td>${escapeHtml(p.category_id)}</td>
-            <td>${countTiers} phân khúc</td>
+            <td>${escapeHtml(catDisplay)}</td>
+            <td>
+              <span class="badge ${countTiers > 0 ? 'badge-green' : 'badge-yellow'}">${countTiers} phân khúc</span>
+            </td>
             <td><span class="badge ${isVis ? 'badge-green' : 'badge-red'}">${isVis ? 'Đang hiện' : 'Đã ẩn'}</span></td>
             <td style="white-space: nowrap;">
-              <button class="btn btn-outline" onclick="editProduct('${escapeJs(p.product_id)}')">Sửa</button>
-              <button class="btn btn-danger" onclick="deleteProduct('${escapeJs(p.product_id)}')">Xóa</button>
+              <button class="btn btn-success" onclick="quickAddTierForProduct('${escapeJs(prodIdClean)}')">+ Thêm phân khúc</button>
+              <button class="btn btn-outline" onclick="editProduct('${escapeJs(prodIdClean)}')">Sửa</button>
+              <button class="btn btn-danger" onclick="deleteProduct('${escapeJs(prodIdClean)}')">Xóa</button>
             </td>
           </tr>
         `;
       }).join('');
     }
 
+    function quickAddTierForProduct(prodId) {
+      const tabBtn = document.getElementById('tabBtnTiers');
+      switchTab('tabTiers', tabBtn);
+      resetTierForm();
+      document.getElementById('tierProductId').value = String(prodId || '').trim();
+      const filterSelect = document.getElementById('filterTierByProd');
+      if (filterSelect) {
+        filterSelect.value = String(prodId || '').trim();
+        renderTiersAdmin();
+      }
+      document.getElementById('tierName').focus();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function editProduct(prodId) {
-      const p = adminState.products.find(x => String(x.product_id) === String(prodId));
+      const p = adminState.products.find(x => String(x.product_id || '').trim() === String(prodId || '').trim());
       if (!p) return;
-      document.getElementById('prodId').value = p.product_id;
+      document.getElementById('prodId').value = String(p.product_id || '').trim();
       document.getElementById('prodName').value = p.product_name || '';
-      document.getElementById('prodCategory').value = p.category_id || 'CAT_01';
+      document.getElementById('prodCategory').value = String(p.category_id || 'CAT_01').trim();
       document.getElementById('prodOrder').value = p.display_order || 1;
-      document.getElementById('prodVisible').value = (String(p.is_visible).toLowerCase() === 'true' || p.is_visible === true) ? 'true' : 'false';
+      document.getElementById('prodVisible').value = (String(p.is_visible).trim().toLowerCase() === 'true' || p.is_visible === true) ? 'true' : 'false';
       document.getElementById('prodImgUrl').value = p.image_url || '';
       document.getElementById('prodDesc').value = p.description || '';
       previewImage(p.image_url || '', 'prodImgPreview', 'prodImgStatus');
@@ -859,6 +919,9 @@
     function resetProductForm() {
       document.getElementById('prodId').value = '';
       document.getElementById('prodName').value = '';
+      document.getElementById('prodCategory').value = 'CAT_01';
+      document.getElementById('prodOrder').value = '1';
+      document.getElementById('prodVisible').value = 'true';
       document.getElementById('prodImgUrl').value = '';
       document.getElementById('prodDesc').value = '';
       previewImage('', 'prodImgPreview', 'prodImgStatus');
@@ -869,13 +932,13 @@
       const payload = {
         action: 'saveProduct',
         product: {
-          product_id: document.getElementById('prodId').value,
-          product_name: document.getElementById('prodName').value,
-          category_id: document.getElementById('prodCategory').value,
+          product_id: document.getElementById('prodId').value.trim(),
+          product_name: document.getElementById('prodName').value.trim(),
+          category_id: document.getElementById('prodCategory').value.trim(),
           display_order: Number(document.getElementById('prodOrder').value || 1),
           is_visible: document.getElementById('prodVisible').value === 'true',
-          image_url: document.getElementById('prodImgUrl').value,
-          description: document.getElementById('prodDesc').value
+          image_url: document.getElementById('prodImgUrl').value.trim(),
+          description: document.getElementById('prodDesc').value.trim()
         }
       };
       const res = await apiPost(payload);
@@ -896,20 +959,36 @@
     /* ================= QUẢN LÝ PHÂN KHÚC ================= */
     function renderTiersAdmin() {
       const tbody = document.getElementById('adminTiersTable');
-      tbody.innerHTML = adminState.tiers.map(t => {
-        const prod = adminState.products.find(p => String(p.product_id) === String(t.product_id));
+      const filterSelect = document.getElementById('filterTierByProd');
+      const selectedFilter = filterSelect ? filterSelect.value : 'ALL';
+
+      const filteredTiers = selectedFilter === 'ALL'
+        ? adminState.tiers
+        : adminState.tiers.filter(t => String(t.product_id || '').trim() === selectedFilter);
+
+      if (filteredTiers.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 24px; color: var(--text-secondary);">Chưa có phân khúc giá nào cho lựa chọn này. Hãy điền biểu mẫu phía trên để thêm phân khúc mới.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filteredTiers.map(t => {
+        const prod = adminState.products.find(p => String(p.product_id || '').trim() === String(t.product_id || '').trim());
         const prodName = prod ? prod.product_name : t.product_id;
+        const st = String(t.status || 'CON_HANG').trim();
         let badgeClass = 'badge-green';
-        if (t.status === 'LIEN_HE') badgeClass = 'badge-yellow';
-        if (t.status === 'HET_HANG') badgeClass = 'badge-red';
+        if (st === 'LIEN_HE') badgeClass = 'badge-yellow';
+        if (st === 'HET_HANG') badgeClass = 'badge-red';
+
+        const extraDetails = [t.condition, t.accessories, t.warranty].filter(Boolean).join(' • ');
 
         return `
           <tr>
+            <td>${t.display_order || 1}</td>
             <td><strong>${escapeHtml(prodName)}</strong></td>
             <td>${escapeHtml(t.tier_name)}</td>
             <td style="font-weight:700; color:var(--navy);">${Number(t.price || 0).toLocaleString('vi-VN')}đ</td>
-            <td><span class="badge ${badgeClass}">${escapeHtml(t.status)}</span></td>
-            <td>${escapeHtml(t.condition || '')} ${t.accessories ? ' | ' + escapeHtml(t.accessories) : ''}</td>
+            <td><span class="badge ${badgeClass}">${escapeHtml(st)}</span></td>
+            <td>${escapeHtml(extraDetails || 'Theo tiêu chuẩn shop')}</td>
             <td style="white-space: nowrap;">
               <button class="btn btn-outline" onclick="editTier('${escapeJs(t.tier_id)}')">Sửa</button>
               <button class="btn btn-danger" onclick="deleteTier('${escapeJs(t.tier_id)}')">Xóa</button>
@@ -920,13 +999,13 @@
     }
 
     function editTier(tierId) {
-      const t = adminState.tiers.find(x => String(x.tier_id) === String(tierId));
+      const t = adminState.tiers.find(x => String(x.tier_id || '').trim() === String(tierId || '').trim());
       if (!t) return;
-      document.getElementById('tierId').value = t.tier_id;
-      document.getElementById('tierProductId').value = t.product_id;
+      document.getElementById('tierId').value = String(t.tier_id || '').trim();
+      document.getElementById('tierProductId').value = String(t.product_id || '').trim();
       document.getElementById('tierName').value = t.tier_name || '';
       document.getElementById('tierPrice').value = t.price || 0;
-      document.getElementById('tierStatus').value = t.status || 'CON_HANG';
+      document.getElementById('tierStatus').value = String(t.status || 'CON_HANG').trim();
       document.getElementById('tierDesc').value = t.description || '';
       document.getElementById('tierCondition').value = t.condition || '';
       document.getElementById('tierAccessories').value = t.accessories || '';
@@ -941,36 +1020,40 @@
       document.getElementById('tierId').value = '';
       document.getElementById('tierName').value = '';
       document.getElementById('tierPrice').value = '';
+      document.getElementById('tierStatus').value = 'CON_HANG';
       document.getElementById('tierDesc').value = '';
       document.getElementById('tierCondition').value = '';
       document.getElementById('tierAccessories').value = '';
       document.getElementById('tierWarranty').value = '';
+      document.getElementById('tierOrder').value = '1';
       document.getElementById('tierImgUrl').value = '';
       previewImage('', 'tierImgPreview', 'tierImgStatus');
     }
 
     async function saveTierForm(e) {
       e.preventDefault();
+      const selectedProductId = document.getElementById('tierProductId').value.trim();
       const payload = {
         action: 'saveTier',
         tier: {
-          tier_id: document.getElementById('tierId').value,
-          product_id: document.getElementById('tierProductId').value,
-          tier_name: document.getElementById('tierName').value,
+          tier_id: document.getElementById('tierId').value.trim(),
+          product_id: selectedProductId,
+          tier_name: document.getElementById('tierName').value.trim(),
           price: Number(document.getElementById('tierPrice').value || 0),
-          status: document.getElementById('tierStatus').value,
-          description: document.getElementById('tierDesc').value,
-          condition: document.getElementById('tierCondition').value,
-          accessories: document.getElementById('tierAccessories').value,
-          warranty: document.getElementById('tierWarranty').value,
+          status: document.getElementById('tierStatus').value.trim(),
+          description: document.getElementById('tierDesc').value.trim(),
+          condition: document.getElementById('tierCondition').value.trim(),
+          accessories: document.getElementById('tierAccessories').value.trim(),
+          warranty: document.getElementById('tierWarranty').value.trim(),
           display_order: Number(document.getElementById('tierOrder').value || 1),
-          image_url: document.getElementById('tierImgUrl').value
+          image_url: document.getElementById('tierImgUrl').value.trim()
         }
       };
       const res = await apiPost(payload);
       if (res.success) {
         applyAdminData(res.data);
         resetTierForm();
+        document.getElementById('tierProductId').value = selectedProductId;
       }
       showToast(res.message);
     }
@@ -992,7 +1075,7 @@
 
       tbody.innerHTML = adminState.orders.map(o => {
         const optionsHtml = ORDER_STATUSES.map(st =>
-          `<option value="${st}" ${String(o.order_status) === st ? 'selected' : ''}>${st}</option>`
+          `<option value="${st}" ${String(o.order_status || '').trim() === st ? 'selected' : ''}>${st}</option>`
         ).join('');
 
         return `
@@ -1100,7 +1183,7 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
-      btnEl.classList.add('active');
+      if (btnEl) btnEl.classList.add('active');
     }
 
     function showToast(msg) {
@@ -1112,7 +1195,10 @@
     }
 
     function escapeHtml(str) {
-      return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      return String(str || '').replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
     function escapeAttr(str) { return escapeHtml(str).replace(/'/g, '&#39;'); }
     function escapeJs(str) { return String(str || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'"); }
