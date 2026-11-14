@@ -409,28 +409,359 @@
       color: var(--text-secondary);
     }
 
-    /* ================= 5 CATEGORIES ================= */
-    .categories-grid {
+/* ================= 6 CATEGORIES & QUICK TIERS ================= */
+    #categoriesGrid.categories-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
     }
 
     .cat-card {
       background-color: var(--white);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      padding: 20px 18px;
+      padding: 16px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.2s ease;
       cursor: pointer;
+      user-select: none;
     }
 
     .cat-card:hover,
     .cat-card.active {
       border-color: var(--navy);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .cat-card.active {
+      background-color: var(--navy);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+
+    .cat-thumb {
+      height: 92px;
+      background-color: var(--ivory);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .cat-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+
+    .cat-code-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--navy);
+      padding: 6px 8px;
+      text-align: center;
+    }
+
+    .cat-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .cat-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    .cat-card.active .cat-desc {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .cat-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .cat-card.active .cat-footer {
+      border-top-color: rgba(255, 255, 255, 0.2);
+      color: var(--gold);
+    }
+
+    /* Khung hiển thị ngay phân khúc giá bên dưới danh mục */
+    .quick-tiers-panel {
+      margin-top: 22px;
+      background-color: var(--ivory);
+      border: 2px solid var(--navy);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: var(--shadow-hover);
+      animation: fadeSlideDown 0.22s ease-out;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quick-tiers-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quick-tiers-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .quick-tiers-sub {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .quick-product-group {
+      margin-bottom: 22px;
+    }
+
+    .quick-product-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .quick-product-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quick-tier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quick-tier-item {
+      background-color: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .quick-tier-item:hover {
+      border-color: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-tier-info {
+      flex: 1;
+    }
+
+    .quick-tier-top {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .quick-tier-index {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: var(--navy);
+      color: var(--gold);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .quick-tier-name {
+      font-weight: 700;
+      font-size: 1.04rem;
+      color: var(--navy);
+    }
+
+    .quick-tier-details {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .quick-tier-details strong {
+      color: var(--text-primary);
+    }
+
+    .quick-tier-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .quick-tier-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .quick-tier-action {
+      min-width: 175px;
+    }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 24px;
+      padding: 14px 20px;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .filter-status-text {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .btn-reset-filter {
+      background-color: var(--ivory);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-reset-filter:hover {
+      border-color: var(--navy);
+    }
+
+    /* Tối ưu riêng cho Tablet và Điện thoại (Mobile) */
+    @media (max-width: 1100px) {
+      #categoriesGrid.categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      #categoriesGrid.categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .cat-card {
+        padding: 12px 14px;
+        min-height: 72px;
+        border-radius: 10px;
+      }
+
+      /* Thu gọn ảnh và mô tả dài trên điện thoại để 6 danh mục nằm gọn trong 1 màn hình */
+      .cat-thumb,
+      .cat-desc {
+        display: none;
+      }
+
+      .cat-name {
+        font-size: 0.93rem;
+        margin-bottom: 6px;
+      }
+
+      .cat-footer {
+        padding-top: 6px;
+        font-size: 0.76rem;
+      }
+
+      .quick-tiers-panel {
+        padding: 16px 14px;
+        margin-top: 16px;
+      }
+
+      .quick-tiers-title {
+        font-size: 1.05rem;
+      }
+
+      .quick-tier-item {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+        gap: 14px;
+      }
+
+      .quick-tier-name {
+        font-size: 1.02rem;
+      }
+
+      .quick-tier-details {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .quick-tier-right {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--border);
+      }
+
+      .quick-tier-price {
+        font-size: 1.4rem;
+      }
+
+      .quick-tier-action {
+        width: 100%;
+      }
+
+      .quick-tier-action .btn-tier-order,
+      .quick-tier-action .btn-tier-zalo,
+      .quick-tier-action .btn-tier-disabled {
+        padding: 14px 16px;
+        font-size: 0.96rem;
+      }
+    }
       box-shadow: var(--shadow-hover);
       transform: translateY(-3px);
     }
@@ -1219,13 +1550,16 @@
         <p class="section-desc">Chọn danh mục bên dưới để xem thông tin chi tiết từng dòng máy và các phân khúc giá hiện có tại cửa hàng.</p>
       </div>
 
-      <!-- 5 Danh mục chính -->
+<!-- 6 Danh mục chính -->
       <div class="categories-grid" id="categoriesGrid"></div>
+
+      <!-- Bảng phân khúc giá xuất hiện ngay bên dưới khi nhấn chọn danh mục -->
+      <div id="quickTiersWrapper"></div>
 
       <!-- Thanh trạng thái lọc -->
       <div class="filter-bar">
-        <div class="filter-status-text" id="filterStatusText">Đang hiển thị: Tất cả danh mục sản phẩm</div>
-        <button class="btn-reset-filter" onclick="selectCategory('ALL')">Xem tất cả (5 danh mục)</button>
+        <div class="filter-status-text" id="filterStatusText">Đang hiển thị: Tất cả 6 danh mục sản phẩm</div>
+        <button class="btn-reset-filter" onclick="selectCategory('ALL')">Xem tất cả (6 danh mục)</button>
       </div>
 
       <!-- Danh sách sản phẩm & phân khúc giá -->
@@ -1327,7 +1661,8 @@
             <li><a href="#san-pham" onclick="selectCategory('CAT_02')">CASIO FX-580VN X</a></li>
             <li><a href="#san-pham" onclick="selectCategory('CAT_03')">CASIO FX-880</a></li>
             <li><a href="#san-pham" onclick="selectCategory('CAT_04')">FLEXIO 799VN</a></li>
-            <li><a href="#san-pham" onclick="selectCategory('CAT_05')">VINACAL & Dòng khác</a></li>
+            <li><a href="#san-pham" onclick="selectCategory('CAT_05')">VINACAL</a></li>
+            <li><a href="#san-pham" onclick="selectCategory('CAT_06')">CÁC DÒNG MÁY KHÁC</a></li>
           </ul>
         </div>
 
@@ -1477,7 +1812,7 @@
      */
     const API_URL = 'https://script.google.com/macros/s/AKfycbwx8CtdX26l16FzHmSlgVB7P0uL9tijjhXhJKc8mPndYFKzKVvJWZfN0xtML0IAlfar/exec';
 
-    // 5 Danh mục cố định theo đúng Đặc tả Mục II.4
+  // 6 Danh mục độc lập theo thứ tự yêu cầu
     const FIXED_CATEGORIES = [
       {
         id: 'CAT_01',
@@ -1505,9 +1840,15 @@
       },
       {
         id: 'CAT_05',
-        code: 'VINACAL & KHÁC',
-        name: 'VINACAL VÀ CÁC DÒNG KHÁC',
-        desc: 'Bao gồm VINACAL 680 III, các dòng máy tính khác và phụ kiện liên quan.'
+        code: 'VINACAL',
+        name: 'VINACAL',
+        desc: 'Bao gồm dòng máy VINACAL 680EX Plus III và các phiên bản Vinacal chuyên dụng.'
+      },
+      {
+        id: 'CAT_06',
+        code: 'DÒNG MÁY KHÁC',
+        name: 'CÁC DÒNG MÁY KHÁC',
+        desc: 'Bao gồm các dòng máy tính học tập khác và phụ kiện liên quan tại cửa hàng.'
       }
     ];
 
@@ -1664,14 +2005,14 @@
         applyStoreData(FALLBACK_DATA);
       }
     }
-
-    function applyStoreData(data) {
+function applyStoreData(data) {
       storeState.settings = data.settings || FALLBACK_DATA.settings;
       storeState.products = Array.isArray(data.products) ? data.products : [];
       storeState.tiers = Array.isArray(data.tiers) ? data.tiers : [];
 
       renderSettings();
       renderCategories();
+      renderQuickTiers();
       renderProducts();
     }
 
@@ -1686,7 +2027,6 @@
       if (s.hero_description) document.getElementById('heroDescription').textContent = s.hero_description;
       if (s.about_text) document.getElementById('aboutLeadText').textContent = s.about_text;
 
-      // Logo
       const logoImg = document.getElementById('headerLogoImg');
       if (s.logo_url && s.logo_url.trim() !== '') {
         logoImg.src = s.logo_url.trim();
@@ -1696,7 +2036,6 @@
         logoImg.style.display = 'none';
       }
 
-      // Banner Hero
       const bannerImg = document.getElementById('heroBannerImg');
       const bannerPlaceholder = document.getElementById('heroBannerPlaceholder');
       if (s.hero_banner_url && s.hero_banner_url.trim() !== '') {
@@ -1711,13 +2050,11 @@
         };
       }
 
-      // Chính sách
       document.getElementById('policyBuyingGuide').textContent = s.buying_guide || 'Đang cập nhật.';
       document.getElementById('policyWarranty').textContent = s.policy_warranty || 'Đang cập nhật.';
       document.getElementById('policyReturn').textContent = s.policy_return || 'Đang cập nhật.';
       document.getElementById('policyShipping').textContent = s.policy_shipping || 'Đang cập nhật.';
 
-      // Liên hệ & Zalo
       const zaloUrl = (s.zalo_url && s.zalo_url.trim() !== '') ? s.zalo_url.trim() : 'https://zalo.me/0587231800';
       document.getElementById('headerZaloBtn').href = zaloUrl;
       document.getElementById('contactZaloBtn').href = zaloUrl;
@@ -1732,7 +2069,6 @@
       document.getElementById('footerPhone').textContent = 'SĐT: ' + (s.phone_number || '077 6767 179');
       document.getElementById('footerZalo').textContent = 'Zalo: ' + (s.zalo_phone || '058 723 1800');
 
-      // QR Zalo
       const qrImg = document.getElementById('contactZaloQrImg');
       const qrPlaceholder = document.getElementById('contactZaloQrPlaceholder');
       const successQrWrap = document.getElementById('successQrWrap');
@@ -1758,6 +2094,8 @@
       const grid = document.getElementById('categoriesGrid');
       grid.innerHTML = FIXED_CATEGORIES.map(cat => {
         const productsInCat = storeState.products.filter(p => String(p.category_id) === cat.id);
+        const productIds = productsInCat.map(p => String(p.product_id));
+        const tiersInCat = storeState.tiers.filter(t => productIds.includes(String(t.product_id)));
         const firstImgProduct = productsInCat.find(p => p.image_url && String(p.image_url).trim() !== '');
         const isActive = storeState.activeCategory === cat.id;
 
@@ -1773,15 +2111,154 @@
               <p class="cat-desc">${escapeHtml(cat.desc)}</p>
             </div>
             <div class="cat-footer">
-              <span>${productsInCat.length} dòng máy</span>
-              <span>Xem sản phẩm →</span>
+              <span>${tiersInCat.length > 0 ? tiersInCat.length + ' phân khúc giá' : productsInCat.length + ' dòng máy'}</span>
+              <span>${isActive ? 'Đang chọn ✓' : 'Xem giá ↓'}</span>
             </div>
           </div>
         `;
       }).join('');
     }
 
+    function renderQuickTiers() {
+      const wrapper = document.getElementById('quickTiersWrapper');
+      if (!wrapper) return;
+
+      const catId = storeState.activeCategory;
+      if (!catId || catId === 'ALL') {
+        wrapper.innerHTML = '';
+        return;
+      }
+
+      const catInfo = FIXED_CATEGORIES.find(c => c.id === catId);
+      const catName = catInfo ? catInfo.name : catId;
+      const productsInCat = storeState.products.filter(p => String(p.category_id) === catId);
+      const zaloLink = storeState.settings.zalo_url || 'https://zalo.me/0587231800';
+
+      if (productsInCat.length === 0) {
+        wrapper.innerHTML = `
+          <div class="quick-tiers-panel">
+            <div class="quick-tiers-header">
+              <div>
+                <div class="quick-tiers-title">DANH MỤC: ${escapeHtml(catName)}</div>
+                <div class="quick-tiers-sub">Danh sách các phân khúc giá thuộc danh mục bạn vừa chọn</div>
+              </div>
+              <button class="btn-reset-filter" onclick="selectCategory('ALL')">✕ Đóng bảng giá</button>
+            </div>
+            <div style="background: var(--white); border: 1px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center;">
+              <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">Danh mục ${escapeHtml(catName)} hiện đang được cập nhật dòng máy và mức giá lên hệ thống.</p>
+              <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 16px;">Kết nối Zalo để nhận báo giá và xem ảnh máy thực tế trong kho.</p>
+              <a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-primary">Nhắn Zalo tư vấn ngay</a>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const groupsHtml = productsInCat.map(prod => {
+        const prodTiers = storeState.tiers.filter(t => String(t.product_id) === String(prod.product_id));
+
+        if (prodTiers.length === 0) {
+          return `
+            <div class="quick-product-group">
+              <div class="quick-product-heading">Dòng máy: ${escapeHtml(prod.product_name)}</div>
+              <div style="background: var(--white); border: 1px dashed var(--border); border-radius: 10px; padding: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <span style="font-size: 0.92rem; color: var(--text-secondary);">Hiện đang cập nhật các phân khúc giá cho dòng máy <strong>${escapeHtml(prod.product_name)}</strong>.</span>
+                <a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-tier-zalo" style="width: auto; padding: 10px 18px;">Liên hệ Zalo báo giá</a>
+              </div>
+            </div>
+          `;
+        }
+
+        const tiersListHtml = prodTiers.map((tier, idx) => {
+          const status = String(tier.status || 'CON_HANG').trim();
+          let badgeLabel = 'Còn hàng';
+          if (status === 'LIEN_HE') badgeLabel = 'Liên hệ thêm';
+          if (status === 'HET_HANG') badgeLabel = 'Hết hàng';
+
+          const priceFormatted = Number(tier.price || 0).toLocaleString('vi-VN') + 'đ';
+
+          const detailRows = [];
+          if (tier.condition) detailRows.push(`<div><strong>Tình trạng / Ngoại hình:</strong> ${escapeHtml(tier.condition)}</div>`);
+          if (tier.description) detailRows.push(`<div><strong>Mô tả:</strong> ${escapeHtml(tier.description)}</div>`);
+          if (tier.accessories || tier.warranty) {
+            const extras = [];
+            if (tier.accessories) extras.push(`Phụ kiện: ${escapeHtml(tier.accessories)}`);
+            if (tier.warranty) extras.push(`Bảo hành: ${escapeHtml(tier.warranty)}`);
+            detailRows.push(`<div>${extras.join(' • ')}</div>`);
+          }
+
+          let actionBtn = '';
+          if (status === 'CON_HANG') {
+            actionBtn = `<button type="button" class="btn-tier-order" onclick="openOrderModal('${escapeJs(prod.product_id)}', '${escapeJs(tier.tier_id)}')">Chọn đặt phân khúc này</button>`;
+          } else if (status === 'LIEN_HE') {
+            actionBtn = `<a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-tier-zalo">Liên hệ Zalo tư vấn</a>`;
+          } else {
+            actionBtn = `<button type="button" class="btn-tier-disabled" disabled>Tạm hết hàng</button>`;
+          }
+
+          return `
+            <div class="quick-tier-item">
+              <div class="quick-tier-info">
+                <div class="quick-tier-top">
+                  <span class="quick-tier-index">Phân khúc ${idx + 1}</span>
+                  <span class="quick-tier-name">${escapeHtml(tier.tier_name)}</span>
+                  <span class="status-badge status-${escapeAttr(status)}">${badgeLabel}</span>
+                </div>
+                <div class="quick-tier-details">
+                  ${detailRows.length > 0 ? detailRows.join('') : '<div>Thông tin chi tiết theo tiêu chuẩn cửa hàng.</div>'}
+                </div>
+              </div>
+              <div class="quick-tier-right">
+                <div class="quick-tier-price">${priceFormatted}</div>
+                <div class="quick-tier-action">${actionBtn}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="quick-product-group">
+            <div class="quick-product-heading">Dòng máy: ${escapeHtml(prod.product_name)} (${prodTiers.length} lựa chọn giá)</div>
+            <div class="quick-tier-list">${tiersListHtml}</div>
+          </div>
+        `;
+      }).join('');
+
+      wrapper.innerHTML = `
+        <div class="quick-tiers-panel">
+          <div class="quick-tiers-header">
+            <div>
+              <div class="quick-tiers-title">CÁC PHÂN KHÚC GIÁ: ${escapeHtml(catName)}</div>
+              <div class="quick-tiers-sub">So sánh tình trạng ngoại hình, mức giá và nhấn chọn phân khúc phù hợp</div>
+            </div>
+            <button class="btn-reset-filter" onclick="selectCategory('ALL')">✕ Xem tất cả danh mục</button>
+          </div>
+          ${groupsHtml}
+        </div>
+      `;
+    }
+
     function selectCategory(catId) {
+      storeState.activeCategory = catId;
+      renderCategories();
+      renderQuickTiers();
+      renderProducts();
+
+      const statusEl = document.getElementById('filterStatusText');
+      if (catId === 'ALL') {
+        statusEl.textContent = 'Đang hiển thị: Tất cả 6 danh mục sản phẩm';
+      } else {
+        const found = FIXED_CATEGORIES.find(c => c.id === catId);
+        statusEl.textContent = 'Thông tin chi tiết dòng máy thuộc danh mục: ' + (found ? found.name : catId);
+
+        const quickWrapper = document.getElementById('quickTiersWrapper');
+        if (quickWrapper) {
+          setTimeout(() => {
+            quickWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 60);
+        }
+      }
+    }
       storeState.activeCategory = catId;
       renderCategories();
       renderProducts();
