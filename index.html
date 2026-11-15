@@ -282,8 +282,8 @@
       background-color: var(--navy-light);
       border: 1px solid rgba(214, 181, 109, 0.35);
       border-radius: 16px;
-      padding: 24px;
-      min-height: 320px;
+      padding: 20px;
+      min-height: 340px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -293,9 +293,10 @@
 
     .hero-visual-box img {
       width: 100%;
-      max-height: 360px;
+      max-height: 400px;
       object-fit: contain;
       border-radius: 10px;
+      cursor: zoom-in;
     }
 
     .hero-placeholder {
@@ -409,7 +410,7 @@
       color: var(--text-secondary);
     }
 
-    /* ================= 6 CATEGORIES & QUICK TIERS ================= */
+    /* ================= 6 CATEGORIES ================= */
     #categoriesGrid.categories-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -420,7 +421,7 @@
       background-color: var(--white);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px 14px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -442,8 +443,10 @@
       border-color: var(--gold);
     }
 
+    /* Khung ảnh danh mục tỉ lệ vuông/dọc vừa vặn với poster đứng */
     .cat-thumb {
-      height: 92px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
       background-color: var(--ivory);
       border-radius: 8px;
       margin-bottom: 12px;
@@ -458,7 +461,12 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 6px;
+      padding: 4px;
+      transition: transform 0.25s ease;
+    }
+
+    .cat-card:hover .cat-thumb img {
+      transform: scale(1.03);
     }
 
     .cat-code-badge {
@@ -504,166 +512,6 @@
       color: var(--gold);
     }
 
-    /* Khung hiển thị ngay phân khúc giá bên dưới danh mục */
-    .quick-tiers-panel {
-      margin-top: 22px;
-      background-color: var(--ivory);
-      border: 2px solid var(--navy);
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: var(--shadow-hover);
-      animation: fadeSlideDown 0.22s ease-out;
-    }
-
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .quick-tiers-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding-bottom: 16px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .quick-tiers-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .quick-tiers-sub {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      margin-top: 2px;
-    }
-
-    .quick-product-group {
-      margin-bottom: 24px;
-    }
-
-    .quick-product-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .quick-product-heading {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.04rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .quick-tier-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .quick-tier-item {
-      background-color: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .quick-tier-item:hover {
-      border-color: var(--navy);
-      box-shadow: var(--shadow);
-    }
-
-    .quick-tier-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .quick-tier-top {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .quick-tier-index {
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      background-color: var(--navy);
-      color: var(--gold);
-      padding: 3px 9px;
-      border-radius: 6px;
-    }
-
-    .quick-tier-name {
-      font-weight: 700;
-      font-size: 1.06rem;
-      color: var(--navy);
-    }
-
-    .quick-tier-details {
-      font-size: 0.89rem;
-      color: var(--text-secondary);
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px 18px;
-    }
-
-    .quick-tier-detail-row {
-      line-height: 1.5;
-    }
-
-    .quick-tier-detail-row strong {
-      color: var(--text-primary);
-    }
-
-    .quick-tier-right {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-shrink: 0;
-    }
-
-    .quick-tier-price-box {
-      text-align: right;
-    }
-
-    .quick-tier-price-label {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .quick-tier-price {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.38rem;
-      font-weight: 800;
-      color: var(--navy);
-      white-space: nowrap;
-    }
-
-    .quick-tier-action {
-      min-width: 185px;
-    }
-
     .filter-bar {
       display: flex;
       align-items: center;
@@ -675,6 +523,7 @@
       background-color: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
+      scroll-margin-top: 86px;
     }
 
     .filter-status-text {
@@ -715,28 +564,59 @@
 
     .product-top {
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 310px 1fr;
       gap: 28px;
       padding: 28px;
       background-color: var(--white);
       border-bottom: 1px solid var(--border);
+      align-items: center;
     }
 
+    /* Khung ảnh đại diện dòng máy: chuyển sang khung dọc/vuông giữ trọn vẹn 100% ảnh */
     .product-img-frame {
       background-color: var(--ivory);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      height: 240px;
+      border-radius: 12px;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 370px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 8px;
       overflow: hidden;
+      position: relative;
+    }
+
+    .product-img-frame.zoomable,
+    .tier-thumb.zoomable {
+      cursor: zoom-in;
     }
 
     .product-img-frame img {
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .product-img-frame.zoomable:hover img,
+    .tier-thumb.zoomable:hover img {
+      transform: scale(1.03);
+    }
+
+    .zoom-hint-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background-color: rgba(20, 36, 58, 0.78);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 6px;
+      pointer-events: none;
+      backdrop-filter: blur(2px);
     }
 
     .img-empty-box {
@@ -799,6 +679,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .tiers-grid {
@@ -869,21 +751,28 @@
       margin-bottom: 12px;
     }
 
+    /* Khung ảnh từng phân khúc giá: chuyển sang khung dọc 3:4 giữ nguyên 100% ảnh */
     .tier-thumb {
-      height: 130px;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      max-height: 300px;
       background-color: var(--ivory);
-      border-radius: 8px;
-      margin-bottom: 12px;
+      border-radius: 10px;
+      margin-bottom: 14px;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid var(--border);
+      padding: 6px;
+      position: relative;
     }
 
     .tier-thumb img {
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+      transition: transform 0.25s ease;
     }
 
     .tier-specs {
@@ -1032,6 +921,7 @@
       border-radius: 8px;
       border: 1px solid var(--border);
       margin-bottom: 12px;
+      cursor: zoom-in;
     }
 
     /* ================= MODAL ORDER & SUCCESS ================= */
@@ -1160,6 +1050,86 @@
       flex-shrink: 0;
     }
 
+    /* ================= IMAGE LIGHTBOX MODAL (XEM ẢNH PHÓNG TO) ================= */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(12, 22, 36, 0.9);
+      z-index: 2500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+      animation: fadeLightbox 0.18s ease-out;
+    }
+
+    .lightbox-backdrop.open {
+      display: flex;
+    }
+
+    @keyframes fadeLightbox {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 94vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background-color: var(--gold);
+      color: var(--navy);
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.45rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s ease;
+    }
+
+    .lightbox-close:hover {
+      transform: scale(1.08);
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 10px;
+      background-color: var(--white);
+      padding: 6px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-caption {
+      margin-top: 12px;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.94rem;
+      text-align: center;
+      background-color: rgba(20, 36, 58, 0.9);
+      padding: 7px 18px;
+      border-radius: 99px;
+      border: 1px solid rgba(214, 181, 109, 0.45);
+      max-width: 90vw;
+    }
+
     /* ================= FOOTER ================= */
     .site-footer {
       background-color: var(--navy);
@@ -1274,7 +1244,7 @@
         padding: 22px;
       }
 
-      /* 6 Danh mục trên Mobile: chia 2 cột rõ ràng, dễ chạm */
+      /* 6 Danh mục trên Mobile: chia 2 cột gọn gàng, dễ thao tác */
       #categoriesGrid.categories-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -1301,62 +1271,13 @@
         font-size: 0.76rem;
       }
 
-      /* Khung phân khúc giá trên Mobile: tách từng thẻ độc lập, dễ đọc */
-      .quick-tiers-panel {
-        padding: 16px 14px;
-        margin-top: 16px;
+      .product-img-frame {
+        max-width: 320px;
+        margin: 0 auto;
       }
 
-      .quick-tiers-title {
-        font-size: 1.05rem;
-      }
-
-      .quick-tier-item {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 16px;
-        gap: 14px;
-      }
-
-      .quick-tier-name {
-        font-size: 1.02rem;
-      }
-
-      .quick-tier-details {
-        grid-template-columns: 1fr;
-        font-size: 0.9rem;
-        gap: 6px;
-      }
-
-      .quick-tier-right {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        padding-top: 12px;
-        border-top: 1px dashed var(--border);
-      }
-
-      .quick-tier-price-box {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        text-align: left;
-      }
-
-      .quick-tier-price {
-        font-size: 1.42rem;
-      }
-
-      .quick-tier-action {
-        width: 100%;
-        min-width: 0;
-      }
-
-      .quick-tier-action .btn-tier-order,
-      .quick-tier-action .btn-tier-zalo,
-      .quick-tier-action .btn-tier-disabled {
-        padding: 14px 16px;
-        font-size: 0.96rem;
+      .tier-thumb {
+        max-height: 330px;
       }
 
       .tiers-container {
@@ -1426,7 +1347,7 @@
           <div class="hero-placeholder-title">CASIO HERO DUY</div>
           <p class="hero-placeholder-sub">Khung hiển thị hình ảnh sản phẩm thực tế hoặc Banner thương hiệu (Cập nhật URL trực tiếp trong trang Quản trị)</p>
         </div>
-        <img id="heroBannerImg" src="" alt="Banner Casio Hero Duy" style="display: none;" />
+        <img id="heroBannerImg" src="" alt="Banner Casio Hero Duy" style="display: none;" onclick="openImageLightbox(this.src, 'CASIO HERO DUY')" />
       </div>
     </div>
   </section>
@@ -1470,17 +1391,14 @@
       <div class="section-header">
         <div class="section-eyebrow">Danh Mục Chính Hãng</div>
         <h2 class="section-title">Khám Phá Theo Dòng Máy</h2>
-        <p class="section-desc">Chọn một trong 6 danh mục bên dưới để xem ngay danh sách các phân khúc giá, tình trạng ngoại hình và đặt hàng trực tiếp.</p>
+        <p class="section-desc">Chọn một trong 6 danh mục bên dưới để lọc nhanh dòng máy và xem chi tiết hình ảnh, mức giá của từng phân khúc.</p>
       </div>
 
       <!-- 6 Danh mục độc lập -->
       <div class="categories-grid" id="categoriesGrid"></div>
 
-      <!-- Bảng phân khúc giá xuất hiện ngay bên dưới khi nhấn chọn danh mục -->
-      <div id="quickTiersWrapper"></div>
-
       <!-- Thanh trạng thái lọc -->
-      <div class="filter-bar">
+      <div class="filter-bar" id="filterBarSection">
         <div class="filter-status-text" id="filterStatusText">Đang hiển thị: Tất cả 6 danh mục sản phẩm</div>
         <button class="btn-reset-filter" onclick="selectCategory('ALL')">Xem tất cả (6 danh mục)</button>
       </div>
@@ -1554,7 +1472,7 @@
         </div>
 
         <div class="qr-box">
-          <img id="contactZaloQrImg" src="" alt="Mã QR Zalo Casio Hero Duy" style="display: none;" />
+          <img id="contactZaloQrImg" src="" alt="Mã QR Zalo Casio Hero Duy" style="display: none;" onclick="openImageLightbox(this.src, 'Mã QR Zalo Casio Hero Duy')" />
           <div id="contactZaloQrPlaceholder" style="padding: 24px; color: var(--text-secondary); font-size: 0.88rem;">
             <strong>Mã QR Zalo Cửa Hàng</strong>
             <p style="margin-top: 6px;">(Hiển thị tự động sau khi cập nhật URL ảnh QR Zalo chính thức trong bảng Settings)</p>
@@ -1721,6 +1639,15 @@
           <button class="btn-reset-filter" onclick="closeSuccessModal()">Đóng cửa sổ</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL XEM ẢNH PHÓNG TO (LIGHTBOX) ================= -->
+  <div class="lightbox-backdrop" id="imageLightbox" onclick="closeImageLightbox(event)">
+    <div class="lightbox-inner" onclick="event.stopPropagation()">
+      <button type="button" class="lightbox-close" onclick="closeImageLightbox()" aria-label="Đóng ảnh">×</button>
+      <img id="lightboxImgEl" class="lightbox-img" src="" alt="Xem ảnh chi tiết" />
+      <div id="lightboxCaptionEl" class="lightbox-caption"></div>
     </div>
   </div>
 
@@ -1917,6 +1844,15 @@
     // Khởi chạy tải dữ liệu khi mở trang
     window.addEventListener('DOMContentLoaded', loadStoreData);
 
+    // Đóng Lightbox hoặc Modal khi nhấn phím ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeImageLightbox();
+        closeOrderModal();
+        closeSuccessModal();
+      }
+    });
+
     async function loadStoreData() {
       if (!API_URL || API_URL.includes('DAN_URL_GOOGLE_APPS_SCRIPT')) {
         applyStoreData(FALLBACK_DATA);
@@ -1953,7 +1889,6 @@
 
       renderSettings();
       renderCategories();
-      renderQuickTiers();
       renderProducts();
     }
 
@@ -2060,151 +1995,29 @@
       }).join('');
     }
 
-    function renderQuickTiers() {
-      const wrapper = document.getElementById('quickTiersWrapper');
-      if (!wrapper) return;
-
-      const catId = storeState.activeCategory;
-      if (!catId || catId === 'ALL') {
-        wrapper.innerHTML = '';
-        return;
-      }
-
-      const catInfo = FIXED_CATEGORIES.find(c => c.id === catId);
-      const catName = catInfo ? catInfo.name : catId;
-      const productsInCat = storeState.products.filter(p => String(p.category_id || '').trim() === catId);
-      const zaloLink = storeState.settings.zalo_url || 'https://zalo.me/0587231800';
-
-      if (productsInCat.length === 0) {
-        wrapper.innerHTML = `
-          <div class="quick-tiers-panel">
-            <div class="quick-tiers-header">
-              <div>
-                <div class="quick-tiers-title">DANH MỤC: ${escapeHtml(catName)}</div>
-                <div class="quick-tiers-sub">Danh sách các phân khúc giá thuộc danh mục bạn vừa chọn</div>
-              </div>
-              <button class="btn-reset-filter" onclick="selectCategory('ALL')">✕ Đóng bảng giá</button>
-            </div>
-            <div style="background: var(--white); border: 1px dashed var(--border); border-radius: 10px; padding: 24px; text-align: center;">
-              <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">Danh mục ${escapeHtml(catName)} hiện đang được cập nhật dòng máy và mức giá lên hệ thống.</p>
-              <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 16px;">Kết nối Zalo để nhận báo giá và xem ảnh máy thực tế trong kho.</p>
-              <a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-primary">Nhắn Zalo tư vấn ngay</a>
-            </div>
-          </div>
-        `;
-        return;
-      }
-
-      const groupsHtml = productsInCat.map(prod => {
-        const prodIdClean = String(prod.product_id || '').trim();
-        const prodTiers = storeState.tiers.filter(t => String(t.product_id || '').trim() === prodIdClean);
-
-        if (prodTiers.length === 0) {
-          return `
-            <div class="quick-product-group">
-              <div class="quick-product-heading">
-                <span>Dòng máy: ${escapeHtml(prod.product_name)}</span>
-                <span style="font-size: 0.84rem; font-weight: 600; color: var(--text-secondary);">Đang cập nhật phân khúc giá</span>
-              </div>
-              <div style="background: var(--white); border: 1px dashed var(--border); border-radius: 10px; padding: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-                <span style="font-size: 0.92rem; color: var(--text-secondary);">Hiện cửa hàng đang cập nhật bảng phân khúc giá cho <strong>${escapeHtml(prod.product_name)}</strong>. Vui lòng nhắn Zalo để nhận báo giá và ảnh máy thực tế.</span>
-                <a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-tier-zalo" style="width: auto; padding: 10px 18px;">Liên hệ Zalo báo giá</a>
-              </div>
-            </div>
-          `;
-        }
-
-        const tiersListHtml = prodTiers.map((tier, idx) => {
-          const status = String(tier.status || 'CON_HANG').trim();
-          let badgeLabel = 'Còn hàng';
-          if (status === 'LIEN_HE') badgeLabel = 'Liên hệ thêm';
-          if (status === 'HET_HANG') badgeLabel = 'Hết hàng';
-
-          const priceFormatted = Number(tier.price || 0).toLocaleString('vi-VN') + 'đ';
-
-          const conditionText = tier.condition ? escapeHtml(tier.condition) : 'Đang cập nhật chi tiết ngoại hình';
-          const descText = tier.description ? escapeHtml(tier.description) : 'Máy hoạt động ổn định các chức năng tính toán';
-          const accessoriesText = tier.accessories ? escapeHtml(tier.accessories) : 'Theo tiêu chuẩn cửa hàng';
-          const warrantyText = tier.warranty ? escapeHtml(tier.warranty) : 'Theo chính sách bảo hành Casio Hero Duy';
-
-          let actionBtn = '';
-          if (status === 'CON_HANG') {
-            actionBtn = `<button type="button" class="btn-tier-order" onclick="openOrderModal('${escapeJs(prod.product_id)}', '${escapeJs(tier.tier_id)}')">Chọn đặt phân khúc này</button>`;
-          } else if (status === 'LIEN_HE') {
-            actionBtn = `<a href="${escapeAttr(zaloLink)}" target="_blank" rel="noopener" class="btn-tier-zalo">Liên hệ Zalo tư vấn</a>`;
-          } else {
-            actionBtn = `<button type="button" class="btn-tier-disabled" disabled>Tạm hết hàng</button>`;
-          }
-
-          return `
-            <div class="quick-tier-item">
-              <div class="quick-tier-info">
-                <div class="quick-tier-top">
-                  <span class="quick-tier-index">Phân khúc ${idx + 1}</span>
-                  <span class="quick-tier-name">${escapeHtml(tier.tier_name)}</span>
-                  <span class="status-badge status-${escapeAttr(status)}">${badgeLabel}</span>
-                </div>
-                <div class="quick-tier-details">
-                  <div class="quick-tier-detail-row"><strong>Tình trạng ngoại hình:</strong> ${conditionText}</div>
-                  <div class="quick-tier-detail-row"><strong>Mô tả sản phẩm:</strong> ${descText}</div>
-                  <div class="quick-tier-detail-row"><strong>Phụ kiện đi kèm:</strong> ${accessoriesText}</div>
-                  <div class="quick-tier-detail-row"><strong>Chính sách bảo hành:</strong> ${warrantyText}</div>
-                </div>
-              </div>
-              <div class="quick-tier-right">
-                <div class="quick-tier-price-box">
-                  <span class="quick-tier-price-label">Giá bán</span>
-                  <div class="quick-tier-price">${priceFormatted}</div>
-                </div>
-                <div class="quick-tier-action">${actionBtn}</div>
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        return `
-          <div class="quick-product-group">
-            <div class="quick-product-heading">
-              <span>Dòng máy: ${escapeHtml(prod.product_name)}</span>
-              <span style="font-size: 0.85rem; color: var(--text-secondary);">Tổng cộng: ${prodTiers.length} phân khúc giá</span>
-            </div>
-            <div class="quick-tier-list">${tiersListHtml}</div>
-          </div>
-        `;
-      }).join('');
-
-      wrapper.innerHTML = `
-        <div class="quick-tiers-panel">
-          <div class="quick-tiers-header">
-            <div>
-              <div class="quick-tiers-title">CÁC PHÂN KHÚC GIÁ: ${escapeHtml(catName)}</div>
-              <div class="quick-tiers-sub">Hiển thị trực tiếp từ dữ liệu quản trị — Chọn phân khúc phù hợp với ngân sách của bạn</div>
-            </div>
-            <button class="btn-reset-filter" onclick="selectCategory('ALL')">✕ Đóng / Xem tất cả danh mục</button>
-          </div>
-          ${groupsHtml}
-        </div>
-      `;
-    }
-
     function selectCategory(catId) {
-      storeState.activeCategory = catId;
+      // Nếu nhấn lại vào chính danh mục đang chọn thì tự động mở lại tất cả 6 danh mục
+      if (catId !== 'ALL' && storeState.activeCategory === catId) {
+        storeState.activeCategory = 'ALL';
+      } else {
+        storeState.activeCategory = catId;
+      }
+
       renderCategories();
-      renderQuickTiers();
       renderProducts();
 
       const statusEl = document.getElementById('filterStatusText');
-      if (catId === 'ALL') {
+      if (storeState.activeCategory === 'ALL') {
         statusEl.textContent = 'Đang hiển thị: Tất cả 6 danh mục sản phẩm';
       } else {
-        const found = FIXED_CATEGORIES.find(c => c.id === catId);
-        statusEl.textContent = 'Đang lọc theo danh mục: ' + (found ? found.name : catId);
+        const found = FIXED_CATEGORIES.find(c => c.id === storeState.activeCategory);
+        statusEl.textContent = 'Đang lọc theo danh mục: ' + (found ? found.name : storeState.activeCategory);
 
-        const quickWrapper = document.getElementById('quickTiersWrapper');
-        if (quickWrapper) {
+        const filterBar = document.getElementById('filterBarSection');
+        if (filterBar) {
           setTimeout(() => {
-            quickWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }, 60);
+            filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
         }
       }
     }
@@ -2231,10 +2044,21 @@
         const catLabel = catInfo ? catInfo.name : 'SẢN PHẨM CASIO HERO DUY';
         const prodIdClean = String(prod.product_id || '').trim();
         const prodTiers = storeState.tiers.filter(t => String(t.product_id || '').trim() === prodIdClean);
+        const hasProdImg = prod.image_url && String(prod.image_url).trim() !== '';
+        const cleanProdImg = hasProdImg ? String(prod.image_url).trim() : '';
 
-        const prodImgHtml = (prod.image_url && String(prod.image_url).trim() !== '')
-          ? `<img src="${escapeAttr(prod.image_url)}" alt="${escapeAttr(prod.product_name)}" onerror="this.parentElement.innerHTML='<div class=\\'img-empty-box\\'>Ảnh minh họa đang cập nhật</div>'" />`
-          : `<div class="img-empty-box"><strong>${escapeHtml(prod.product_name)}</strong><br/>(Đang chờ cập nhật URL ảnh thực tế)</div>`;
+        const prodImgFrameHtml = hasProdImg
+          ? `
+            <div class="product-img-frame zoomable" onclick="openImageLightbox('${escapeJs(cleanProdImg)}', '${escapeJs(prod.product_name)}')">
+              <img src="${escapeAttr(cleanProdImg)}" alt="${escapeAttr(prod.product_name)}" onerror="this.parentElement.classList.remove('zoomable'); this.parentElement.onclick=null; this.parentElement.innerHTML='<div class=\\'img-empty-box\\'>Ảnh minh họa đang cập nhật</div>'" />
+              <span class="zoom-hint-badge">🔍 Nhấn phóng to</span>
+            </div>
+          `
+          : `
+            <div class="product-img-frame">
+              <div class="img-empty-box"><strong>${escapeHtml(prod.product_name)}</strong><br/>(Đang chờ cập nhật URL ảnh thực tế)</div>
+            </div>
+          `;
 
         const tiersHtml = prodTiers.length > 0
           ? `<div class="tiers-grid">${prodTiers.map(tier => renderTierCard(prod, tier)).join('')}</div>`
@@ -2246,19 +2070,20 @@
         return `
           <article class="product-block">
             <div class="product-top">
-              <div class="product-img-frame">${prodImgHtml}</div>
+              ${prodImgFrameHtml}
               <div>
                 <span class="product-meta-cat">${escapeHtml(catLabel)}</span>
                 <h3 class="product-name">${escapeHtml(prod.product_name)}</h3>
                 <p class="product-desc">${escapeHtml(prod.description || 'Đang cập nhật mô tả riêng cho dòng máy này.')}</p>
                 <div class="product-note">
-                  Mỗi phân khúc giá bên dưới tương ứng với tình trạng ngoại hình và phụ kiện đi kèm riêng biệt. Chọn phân khúc <strong>Còn hàng</strong> để điền biểu mẫu đặt mua nhanh.
+                  Mỗi phân khúc giá bên dưới tương ứng với tình trạng ngoại hình và phụ kiện đi kèm riêng biệt. Bạn có thể <strong>nhấn trực tiếp vào ảnh</strong> để phóng to xem chi tiết máy và chọn phân khúc <strong>Còn hàng</strong> để đặt mua.
                 </div>
               </div>
             </div>
             <div class="tiers-container">
               <div class="tiers-heading">
                 <span>Các Lựa Chọn Phân Khúc Giá (${prodTiers.length})</span>
+                <span style="font-size: 0.8rem; font-weight: 500; text-transform: none; color: var(--text-secondary);">🔍 Nhấn vào hình ảnh từng phân khúc để xem ảnh lớn</span>
               </div>
               ${tiersHtml}
             </div>
@@ -2274,9 +2099,17 @@
       if (status === 'HET_HANG') badgeLabel = 'Hết hàng';
 
       const priceFormatted = Number(tier.price || 0).toLocaleString('vi-VN') + 'đ';
+      const hasTierImg = tier.image_url && String(tier.image_url).trim() !== '';
+      const cleanTierImg = hasTierImg ? String(tier.image_url).trim() : '';
+      const lightboxCaption = `${prod.product_name} — ${tier.tier_name} (${priceFormatted})`;
 
-      const tierImgHtml = (tier.image_url && String(tier.image_url).trim() !== '')
-        ? `<div class="tier-thumb"><img src="${escapeAttr(tier.image_url)}" alt="${escapeAttr(tier.tier_name)}" onerror="this.parentElement.style.display='none'" /></div>`
+      const tierImgHtml = hasTierImg
+        ? `
+          <div class="tier-thumb zoomable" onclick="openImageLightbox('${escapeJs(cleanTierImg)}', '${escapeJs(lightboxCaption)}')">
+            <img src="${escapeAttr(cleanTierImg)}" alt="${escapeAttr(tier.tier_name)}" onerror="this.parentElement.style.display='none'" />
+            <span class="zoom-hint-badge">🔍 Phóng to</span>
+          </div>
+        `
         : '';
 
       const specs = [];
@@ -2323,6 +2156,30 @@
           <div>${actionButtonHtml}</div>
         </div>
       `;
+    }
+
+    /* ================= XỬ LÝ PHÓNG TO ẢNH (LIGHTBOX) ================= */
+    function openImageLightbox(imgUrl, captionText) {
+      const cleanUrl = String(imgUrl || '').trim();
+      if (!cleanUrl) return;
+      const modal = document.getElementById('imageLightbox');
+      const imgEl = document.getElementById('lightboxImgEl');
+      const capEl = document.getElementById('lightboxCaptionEl');
+
+      imgEl.src = cleanUrl;
+      capEl.textContent = captionText || 'CASIO HERO DUY';
+      modal.classList.add('open');
+    }
+
+    function closeImageLightbox() {
+      const modal = document.getElementById('imageLightbox');
+      const imgEl = document.getElementById('lightboxImgEl');
+      modal.classList.remove('open');
+      setTimeout(() => {
+        if (!modal.classList.contains('open')) {
+          imgEl.src = '';
+        }
+      }, 150);
     }
 
     /* ================= XỬ LÝ MODAL ĐẶT HÀNG ================= */
